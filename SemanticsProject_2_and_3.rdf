@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/fypprocess#"
+     xml:base="http://www.semanticweb.org/fypprocess"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    
+    <owl:Ontology rdf:about="http://www.semanticweb.org/fypprocess"/>
+    
+    <!-- Object Properties -->
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasTeamMember">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasAdvisor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasManager">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Manager"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesDocument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasLeader">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPhase">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    </owl:ObjectProperty>
+    
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#utilizes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    </owl:ObjectProperty>
+    
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#comesBeforePhase">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+</owl:ObjectProperty>
+    
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#approvedBy">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Manager"/>
+    <rdfs:comment>Indicates manager approval of completed tasks</rdfs:comment>
+</owl:ObjectProperty>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#produces">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+    </owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#createdBy">
+    <rdfs:domain>
+        <owl:Class>
+            <owl:unionOf rdf:parseType="Collection">
+                <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Document"/>
+                <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Video"/>
+                <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Poster"/>
+                <!-- Other potential creatable classes -->
+            </owl:unionOf>
+        </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+    <rdfs:comment>Identifies which student created a specific artifact</rdfs:comment>
+</owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#supervises">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#undergoes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#containsUseCase">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasActor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasScenario">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasAlternateScenario">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#AlternateScenario"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPostCondition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#PostCondition"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#fulfillsRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+    </owl:ObjectProperty>
+    
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasWeeklyTask">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    </owl:ObjectProperty>
+    
+
+    <!-- Data Properties -->
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#projectCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#description">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#personName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#studentId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#submissionDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseDuration">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <rdfs:comment>Duration of the phase in weeks</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationScore">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationFeedback">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#technologyVersion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#useCaseId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#useCaseTitle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#preCondition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#stepNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#userAction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#systemReaction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#alternateScenarioDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#AlternateScenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#postConditionDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#PostCondition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#actorType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#weekNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#taskDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#hardwareRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#HardwareInterface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#softwareRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SoftwareInterface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#requirementId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#requirementDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#testResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+    <!-- Classes -->
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FYP">
+        <rdfs:comment>Base parent class representing a Final Year Project</rdfs:comment>
+    </owl:Class>
+    
+    <!-- StakeHolder Hierarchy -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#StakeHolder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Student">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>Developers working on the project</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Supervisor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>Academic supervisor</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Manager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>Project manager</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#User">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>End users of the application</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ExternalEvaluator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+    </owl:Class>
+    
+    <!-- Document Hierarchy -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Document">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SRS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Software Requirements Specification</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DesignDocument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Contains diagrams like DFD, sequence diagrams, etc.</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPlan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Weekly implementation plan</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#TestingDocument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Testing templates and results</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Proposal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Initial project proposal</rdfs:comment>
+    </owl:Class>
+    
+    <!-- Interface Hierarchy -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Interface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:comment>External Interface Requirements section</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#HardwareInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Interface"/>
+        <rdfs:comment>Device requirements</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SoftwareInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Interface"/>
+        <rdfs:comment>Software dependencies and APIs</rdfs:comment>
+    </owl:Class>
+    
+    <!-- Requirement Hierarchy -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Requirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:comment>Functional and non-functional requirements</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FunctionalRequirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:comment>What the system should do</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#NonFunctionalRequirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:comment>System qualities like performance, security</rdfs:comment>
+    </owl:Class>
+    
+    <!-- Testing Document Hierarchy -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UnitTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing individual components</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#IntegrationTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing combined components</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SystemTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing the entire system</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UsabilityTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing user experience</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#PerformanceTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing system performance</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SecurityTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Testing for vulnerabilities</rdfs:comment>
+    </owl:Class>
+    
+    <!-- UseCase Classes -->
+   <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UseCase">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+    <rdfs:comment>Represents user interactions with the system</rdfs:comment>
+</owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Actor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Actors who interact with the system</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Scenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Main flow of events in a use case</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#AlternateScenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Alternative flow of events in a use case</rdfs:comment>
+    </owl:Class>
+    
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#PostCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>State after the use case is completed</rdfs:comment>
+    </owl:Class>
+    
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Video">
+ <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    <rdfs:comment>Video demonstration of the project</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Poster">
+ <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    <rdfs:comment>Visual poster presentation of the project</rdfs:comment>
+</owl:Class>
+    <!-- Implementation Plan Classes -->
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#WeeklyTask">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+        <rdfs:comment>Tasks planned for specific weeks</rdfs:comment>
+    </owl:Class>
+<!-- Project Phase Hierarchy -->
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPhase">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    <rdfs:comment>Different phases of the FYP</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#PlanningPhase">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>Initial planning and proposal development</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPhase">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>System implementation and coding</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#TestingPhase">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>System testing and quality assurance</rdfs:comment>
+</owl:Class>
+
+
+
+
+<!-- Technology Classes -->
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Technology">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    <rdfs:comment>Technologies used in the project</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProgrammingLanguage">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:comment>Programming languages used in development</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Framework">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:comment>Development frameworks used</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Database">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:comment>Database technologies used</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#API">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:comment>External APIs used in the project</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DevTool">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:comment>Development tools used in the project</rdfs:comment>
+</owl:Class>
+
+<!-- Evaluation Classes -->
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Evaluation">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
+    <rdfs:comment>Project evaluation methods</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Assessment">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    <rdfs:comment>Assessment of project deliverables or performance</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Criteria">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    <rdfs:comment>Evaluation criteria used for assessment</rdfs:comment>
+</owl:Class>
+
+<!-- Additional Object Properties -->
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#implementsRequirement">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+    <rdfs:comment>Relates weekly tasks to the requirements they implement</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#participatesIn">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>Relates students to the project phases they participate in</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#relatesTo">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>Relates use cases to project phases</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#testedIn">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+    <rdfs:comment>Relates requirements to testing documents</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#designsFor">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#DesignDocument"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+    <rdfs:comment>Relates design documents to requirements</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#responsibleFor">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:comment>Relates students to their assigned tasks</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#reviewsDocument">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+    <rdfs:comment>Relates stakeholders to documents they review</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluatesPhase">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:comment>Links evaluations to specific project phases</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#conductedBy">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+    <rdfs:comment>Links evaluations to stakeholders who conduct them</rdfs:comment>
+</owl:ObjectProperty>
+
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#usesCriteria">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+    <rdfs:comment>Links assessments to evaluation criteria used</rdfs:comment>
+</owl:ObjectProperty>
+
+
+<owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#performsAssessment">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+    <rdfs:comment>Links stakeholders to assessments they perform</rdfs:comment>
+</owl:ObjectProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#assessmentResult">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    <rdfs:comment>Numerical result of assessment</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#criteriaName">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Name of evaluation criteria</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#criteriaDescription">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Description of evaluation criteria</rdfs:comment>
+</owl:DatatypeProperty>
+
+
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#status">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Status of task (Not Started, In Progress, Completed, Delayed)</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#technologyName">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Name of the technology</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#assignmentDate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:comment>Date when the task was assigned</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#completionDate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:comment>Date when the task was completed</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseStartDate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:comment>Start date of the project phase</rdfs:comment>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseEndDate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:comment>End date of the project phase</rdfs:comment>
+</owl:DatatypeProperty>
+
+
+
+
+<owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationCriteria">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:comment>Specific criteria used for evaluation</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FYP">
+    <rdfs:comment>Base parent class representing a Final Year Project</rdfs:comment>
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasTeamMember"/>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FYP">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasAdvisor"/>
+            <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SRS">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasRequirement"/>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+<owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UseCase">
+    <rdfs:subClassOf>
+        <owl:Restriction>
+            <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasActor"/>
+            <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+        </owl:Restriction>
+    </rdfs:subClassOf>
+</owl:Class>
+</rdf:RDF>
