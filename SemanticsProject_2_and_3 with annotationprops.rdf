@@ -118,6 +118,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#advisorOf">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasAdvisor"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a supervisor to the FYP they advise</rdfs:comment>
         <rdfs:label>advisor of</rdfs:label>
         <skos:definition>Connects a supervisor to the FYP they provide guidance for</skos:definition>
@@ -261,6 +262,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinatedBy">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#coordinates"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
         <dc:description>Establishes the relationship between the FYP and the coordinator who manages the course and evaluation process</dc:description>
         <rdfs:comment>Links an FYP to its coordinator</rdfs:comment>
@@ -274,6 +276,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinates">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates coordinators to FYPs they coordinate</rdfs:comment>
         <rdfs:label>coordinates</rdfs:label>
         <skos:definition>Connects a coordinator to FYPs they manage and oversee</skos:definition>
@@ -286,6 +289,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinatorOf">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasCoordinator"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a coordinator to the FYP they coordinate</rdfs:comment>
         <rdfs:label>coordinator of</rdfs:label>
         <skos:definition>Connects a coordinator to the FYP course they manage</skos:definition>
@@ -354,6 +358,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluates">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#undergoes"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates evaluations to FYPs they assess</rdfs:comment>
         <rdfs:label>evaluates</rdfs:label>
         <skos:definition>Connects evaluation activities to the FYPs they are assessing</skos:definition>
@@ -380,6 +385,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#examines">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isExaminedBy"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Examiner"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Establishes the evaluation relationship between faculty examiners and the projects they are assigned to evaluate</dc:description>
         <rdfs:comment>Links examiners to projects they evaluate</rdfs:comment>
         <rdfs:label>examines</rdfs:label>
@@ -393,6 +399,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#externallyEvaluates">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Establishes the assessment relationship between external evaluators and the projects they evaluate</dc:description>
         <rdfs:comment>Links external evaluators to projects they assess</rdfs:comment>
         <rdfs:label>externally evaluates</rdfs:label>
@@ -432,6 +439,7 @@
     <!-- http://www.semanticweb.org/fypprocess#hasAdvisor -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasAdvisor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
         <dc:description>Establishes the supervisory relationship between a Final Year Project and the academic staff member who provides guidance and oversight</dc:description>
         <rdfs:comment>Relates a FYP to its academic advisor</rdfs:comment>
@@ -458,6 +466,7 @@
     <!-- http://www.semanticweb.org/fypprocess#hasCoordinator -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasCoordinator">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
         <dc:description>Connects the Final Year Project to the coordinator overseeing the FYP process, timeline tracking, and administrative coordination</dc:description>
         <rdfs:comment>Relates a FYP to its course coordinator</rdfs:comment>
@@ -497,6 +506,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasFailureContingency">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isFailureContingencyFor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
         <dc:description>Establishes the relationship between a project and its contingency measures for addressing failure or incompletion</dc:description>
         <rdfs:comment>Links an FYP to its failure contingency plan</rdfs:comment>
@@ -510,6 +520,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasFinalEvaluation">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isFinalEvaluationOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
         <dc:description>Establishes the relationship between a project and its final evaluation, which includes demonstrations and comprehensive report submissions</dc:description>
         <rdfs:comment>Links an FYP to its final evaluation</rdfs:comment>
@@ -535,6 +546,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasLeader">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isLeaderOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
         <dc:description>Designates which student team member takes on the leadership role, coordinating team activities and serving as the primary contact</dc:description>
         <rdfs:comment>Relates a FYP to its team leader</rdfs:comment>
@@ -568,6 +580,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasMidSemesterEvaluation">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isMidSemesterEvaluationOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
         <dc:description>Establishes the relationship between a project and its mid-semester evaluation, which includes poster displays and demonstrations</dc:description>
         <rdfs:comment>Links an FYP to its mid-semester evaluation</rdfs:comment>
@@ -594,6 +607,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPhase">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isPhaseOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
         <dc:description>Connects the Final Year Project to its various development phases such as planning, implementation, and testing</dc:description>
         <rdfs:comment>Relates a FYP to its project phases</rdfs:comment>
@@ -621,6 +635,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPoster">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isPosterOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
         <dc:description>Associates a project with its poster presentation, used for exhibitions and evaluations</dc:description>
         <rdfs:comment>Links an FYP to its poster presentation</rdfs:comment>
@@ -634,6 +649,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasProjectType">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isProjectTypeOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
         <dc:description>Categorizes an FYP as either a development project or a research project, which affects its methodology and deliverables</dc:description>
         <rdfs:comment>Links an FYP to its project type</rdfs:comment>
@@ -675,6 +691,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasTeamMember">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isMemberOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
         <dc:description>This property links a Final Year Project to all students who are members of the project team, indicating their participation in the project</dc:description>
         <rdfs:comment>Relates a FYP to its team members</rdfs:comment>
@@ -688,6 +705,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasUser">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#userOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#User"/>
         <rdfs:comment>Relates an FYP to its end users</rdfs:comment>
         <rdfs:label>has user</rdfs:label>
@@ -700,6 +718,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasVideo">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isVideoOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
         <dc:description>Associates a project with its video presentation, which demonstrates key features and functionality</dc:description>
         <rdfs:comment>Links an FYP to its demonstration video</rdfs:comment>
@@ -741,6 +760,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesDocument">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isDocumentOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
         <dc:description>This property connects the Final Year Project to various documents created during the project lifecycle, including proposals, designs, and reports</dc:description>
         <rdfs:comment>Relates a FYP to its associated documents</rdfs:comment>
@@ -829,6 +849,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isDevelopedBy">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#worksOn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
         <rdfs:comment>Relates FYPs to groups that develop them</rdfs:comment>
         <rdfs:label>is developed by</rdfs:label>
@@ -841,6 +862,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isDocumentOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a document to the FYP it belongs to</rdfs:comment>
         <rdfs:label>is document of</rdfs:label>
         <skos:definition>Connects a document to the FYP it was created for</skos:definition>
@@ -863,6 +885,7 @@
     <!-- http://www.semanticweb.org/fypprocess#isExaminedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isExaminedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Examiner"/>
         <rdfs:comment>Relates FYPs to examiners who evaluate them</rdfs:comment>
         <rdfs:label>is examined by</rdfs:label>
@@ -886,6 +909,7 @@
     <!-- http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
         <rdfs:comment>Relates FYPs to external evaluators who assess them</rdfs:comment>
         <rdfs:label>is externally evaluated by</rdfs:label>
@@ -898,6 +922,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isFailureContingencyFor">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates contingency plans to FYPs they apply to</rdfs:comment>
         <rdfs:label>is failure contingency for</rdfs:label>
         <skos:definition>Connects a failure contingency plan to the FYP it was created for</skos:definition>
@@ -909,6 +934,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isFinalEvaluationOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a final evaluation to the FYP it assesses</rdfs:comment>
         <rdfs:label>is final evaluation of</rdfs:label>
         <skos:definition>Connects a final evaluation to the FYP being evaluated</skos:definition>
@@ -957,6 +983,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isMemberOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates students to the FYP they work on</rdfs:comment>
         <rdfs:label>is member of</rdfs:label>
         <skos:definition>Connects a student to the FYP team they belong to</skos:definition>
@@ -968,6 +995,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isMidSemesterEvaluationOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a mid-semester evaluation to the FYP it assesses</rdfs:comment>
         <rdfs:label>is mid-semester evaluation of</rdfs:label>
         <skos:definition>Connects a mid-semester evaluation to the FYP being evaluated</skos:definition>
@@ -1005,6 +1033,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPhaseOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a project phase to the FYP it belongs to</rdfs:comment>
         <rdfs:label>is phase of</rdfs:label>
         <skos:definition>Connects a project phase to the FYP it is part of</skos:definition>
@@ -1028,6 +1057,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPosterOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a poster to the FYP it belongs to</rdfs:comment>
         <rdfs:label>is poster of</rdfs:label>
         <skos:definition>Connects a poster presentation to the FYP it represents</skos:definition>
@@ -1052,6 +1082,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isProjectTypeOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a project type to FYPs of that type</rdfs:comment>
         <rdfs:label>is project type of</rdfs:label>
         <skos:definition>Connects a project type to FYPs classified as that type</skos:definition>
@@ -1188,6 +1219,7 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isUtilizedIn">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#utilizes"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates technologies to the FYP that uses them</rdfs:comment>
         <rdfs:label>is utilized in</rdfs:label>
         <skos:definition>Connects a technology to the FYP where it is employed</skos:definition>
@@ -1199,6 +1231,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isVideoOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates a video to the FYP it demonstrates</rdfs:comment>
         <rdfs:label>is video of</rdfs:label>
         <skos:definition>Connects a video demonstration to the FYP it represents</skos:definition>
@@ -1320,6 +1353,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotedAt">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#promotes"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
         <dc:description>Establishes the relationship between projects and promotional events where they are demonstrated or showcased</dc:description>
         <rdfs:comment>Links FYPs to events where they are promoted</rdfs:comment>
@@ -1333,6 +1367,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotes">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:comment>Relates promotional events to FYPs they showcase</rdfs:comment>
         <rdfs:label>promotes</rdfs:label>
         <skos:definition>Connects a promotional event to the FYPs being presented or demonstrated</skos:definition>
@@ -1435,6 +1470,7 @@
     <!-- http://www.semanticweb.org/fypprocess#undergoes -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#undergoes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
         <dc:description>Connects the Final Year Project to various evaluation activities conducted throughout its lifecycle</dc:description>
         <rdfs:comment>Relates a FYP to evaluations it undergoes</rdfs:comment>
@@ -1448,6 +1484,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#userOf">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Establishes the relationship between end users and the systems or applications created in FYPs</dc:description>
         <rdfs:comment>Links end users to the systems they use</rdfs:comment>
         <rdfs:label>user of</rdfs:label>
@@ -1472,6 +1509,7 @@
     <!-- http://www.semanticweb.org/fypprocess#utilizes -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#utilizes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
         <dc:description>Links the Final Year Project to all technologies, frameworks, languages, and tools used in its implementation</dc:description>
         <rdfs:comment>Relates a FYP to the technologies it uses</rdfs:comment>
@@ -1485,6 +1523,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#worksOn">
         <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Establishes the relationship between a project team and their Final Year Project</dc:description>
         <rdfs:comment>Links a group to its FYP</rdfs:comment>
         <rdfs:label>works on</rdfs:label>
@@ -1675,6 +1714,7 @@
     <!-- http://www.semanticweb.org/fypprocess#description -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#description">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:description>The description provides an in-depth explanation of what the project does, why it&apos;s needed, and what problems it solves. It serves as a detailed overview for stakeholders and evaluators</dc:description>
         <rdfs:comment>A detailed description of the project</rdfs:comment>
@@ -2023,6 +2063,7 @@
     <!-- http://www.semanticweb.org/fypprocess#projectCode -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#projectCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:description>Used for administrative tracking and reference purposes</dc:description>
         <rdfs:comment>The unique code identifier for the project</rdfs:comment>
@@ -2245,6 +2286,7 @@
     <!-- http://www.semanticweb.org/fypprocess#title -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#title">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:description>A concise, descriptive title that captures the essence of the project</dc:description>
         <rdfs:comment>The title of the Final Year Project</rdfs:comment>
@@ -2391,12 +2433,6 @@
     
 
 
-    <!-- http://schema.org/Person -->
-
-    <owl:Class rdf:about="http://schema.org/Person"/>
-    
-
-
     <!-- http://schema.org/Poster -->
 
     <owl:Class rdf:about="http://schema.org/Poster"/>
@@ -2494,7 +2530,7 @@
     <!-- http://www.semanticweb.org/fypprocess#CapstoneGroup -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#CapstoneGroup">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>The Capstone Group consists of UOS-CSIT students who collectively work on conceptualizing, developing, and implementing the FYP under supervision</dc:description>
         <rdfs:comment>Group of students working on the FYP</rdfs:comment>
         <rdfs:label>Capstone Group</rdfs:label>
@@ -2600,7 +2636,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
         <dc:description>For development projects, this phase includes creating Software Requirement Specifications (SRS) and Software Design Specifications (SDS). For research projects, this involves literature review and developing the proposed methodology</dc:description>
         <rdfs:comment>Phase for developing specifications or research methodology</rdfs:comment>
-        <rdfs:label>Development Phase</rdfs:label>
+        <rdfs:label>Development/Research Phase</rdfs:label>
         <skos:altLabel>Research Planning Phase</skos:altLabel>
         <skos:definition>The phase where students create detailed specifications for development projects or research methodologies for research projects</skos:definition>
         <skos:prefLabel>Development Planning Phase</skos:prefLabel>
@@ -2611,7 +2647,7 @@
     <!-- http://www.semanticweb.org/fypprocess#Document -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Document">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Documents serve as formal records of project planning, implementation, and evaluation</dc:description>
         <rdfs:comment>Any document produced as part of the FYP process</rdfs:comment>
         <rdfs:label>Document</rdfs:label>
@@ -2623,7 +2659,7 @@
     <!-- http://www.semanticweb.org/fypprocess#Evaluation -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Evaluation">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Evaluation encompasses all methods and processes used to assess the FYP including mid-semester evaluations with poster displays and demos, and final submissions with comprehensive reports and presentations</dc:description>
         <rdfs:comment>Project evaluation methods and milestones</rdfs:comment>
         <rdfs:label>Evaluation</rdfs:label>
@@ -2662,10 +2698,33 @@
     
 
 
+    <!-- http://www.semanticweb.org/fypprocess#FYP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FYP">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasTeamMember"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasAdvisor"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Base parent class representing a Final Year Project</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/fypprocess#FailureContingency -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FailureContingency">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>If a project is incomplete, the committee may allow revisions to the existing project or submission of a new proposal within 2 weeks, providing students with a contingency path</dc:description>
         <rdfs:comment>Plan for handling incomplete projects</rdfs:comment>
         <rdfs:label>Failure Contingency</rdfs:label>
@@ -2856,6 +2915,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Poster">
         <rdfs:subClassOf rdf:resource="http://schema.org/Poster"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>The poster provides a visual overview of the project including problem statement, methodology, results, and conclusions. It&apos;s designed for presentation at exhibitions and conferences</dc:description>
         <rdfs:comment>Visual poster presentation of the project</rdfs:comment>
         <rdfs:label>Poster</rdfs:label>
@@ -2885,7 +2945,7 @@
     <!-- http://www.semanticweb.org/fypprocess#ProjectPhase -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPhase">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Project phases organize the FYP into logical stages across two semesters, each with its own objectives, activities, and outcomes</dc:description>
         <rdfs:comment>Different phases of the FYP</rdfs:comment>
         <rdfs:label>Project Phase</rdfs:label>
@@ -2899,7 +2959,7 @@
     <!-- http://www.semanticweb.org/fypprocess#ProjectPromotion -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPromotion">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Project promotion involves showcasing FYPs at events such as SPARKERPOI, CEPEX, PROCOM, and other academic or industry exhibitions to gain visibility and recognition</dc:description>
         <rdfs:comment>Showcasing FYP at events</rdfs:comment>
         <rdfs:label>Project Promotion</rdfs:label>
@@ -2913,7 +2973,7 @@
     <!-- http://www.semanticweb.org/fypprocess#ProjectTimeline -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectTimeline">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>The project timeline includes the Spring semester for proposal submission and approval, Fall semester (Capstone I) for implementation start and mid-semester evaluation, and Spring semester (Capstone II) for final implementation, demo, and comprehensive report submission</dc:description>
         <rdfs:comment>Timeline for the entire FYP process</rdfs:comment>
         <rdfs:label>Project Timeline</rdfs:label>
@@ -2927,7 +2987,7 @@
     <!-- http://www.semanticweb.org/fypprocess#ProjectType -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectType">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>FYP projects can be classified as either development projects with a focus on software application creation or research projects with a focus on investigation and experimentation</dc:description>
         <rdfs:comment>Type of the FYP project</rdfs:comment>
         <rdfs:label>Project Type</rdfs:label>
@@ -3064,7 +3124,7 @@
     <!-- http://www.semanticweb.org/fypprocess#StakeHolder -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#StakeHolder">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Stakeholders include students, supervisors, coordinators, committee members, and other parties involved in the FYP lifecycle</dc:description>
         <rdfs:comment>Any person or role involved in the FYP process</rdfs:comment>
         <rdfs:label>Stakeholder</rdfs:label>
@@ -3076,7 +3136,6 @@
     <!-- http://www.semanticweb.org/fypprocess#Student -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Student">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
         <dc:description>Students are the primary stakeholders who conceptualize, develop, and implement the FYP under supervision. They form groups of up to 3 members</dc:description>
         <rdfs:comment>A student working on the FYP</rdfs:comment>
@@ -3091,7 +3150,6 @@
     <!-- http://www.semanticweb.org/fypprocess#Supervisor -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Supervisor">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
         <dc:description>The supervisor mentors students, provides technical guidance based on their domain expertise, and evaluates project progress. Supervisors can be internal faculty or external experts who align with the project&apos;s domain</dc:description>
         <rdfs:comment>Academic supervisor of the FYP</rdfs:comment>
@@ -3106,7 +3164,6 @@
     <!-- http://www.semanticweb.org/fypprocess#SupervisorExpertise -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SupervisorExpertise">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
         <dc:description>Supervisor expertise covers various domains such as machine learning, big data, networks, security, software engineering, web/android apps, sentiment analysis, data science, and computer vision</dc:description>
         <rdfs:comment>Domain expertise of FYP supervisors</rdfs:comment>
@@ -3136,7 +3193,7 @@
     <!-- http://www.semanticweb.org/fypprocess#Technology -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Technology">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>Technologies encompass all technical components used in the project, including programming languages, frameworks, databases, APIs, and development tools. They form the technical foundation of the project</dc:description>
         <rdfs:comment>Technologies used in the project</rdfs:comment>
         <rdfs:label>Technology</rdfs:label>
@@ -3245,7 +3302,7 @@
     <!-- http://www.semanticweb.org/fypprocess#Video -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Video">
-        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
         <dc:description>The video provides a visual demonstration of the project in action, showing key features, user interface, and system capabilities. It serves as a dynamic presentation tool for evaluators and stakeholders</dc:description>
         <rdfs:comment>Video demonstration of the project</rdfs:comment>
         <rdfs:label>Video</rdfs:label>
@@ -3331,4 +3388,3 @@
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
-
