@@ -1,0 +1,3334 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/fypprocess#"
+     xml:base="http://www.semanticweb.org/fypprocess"
+     xmlns:dc="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/fypprocess">
+        <dc:creator>saad, ismail</dc:creator>
+        <dc:date>2025-05-16</dc:date>
+        <dc:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dc:rights>This ontology is licensed under Creative Commons Attribution 4.0 International License (CC BY 4.0)</dc:rights>
+        <rdfs:comment>An ontology to represent the FYP process, stakeholders, documents, and activities</rdfs:comment>
+        <rdfs:label>Final Year Project Process Ontology</rdfs:label>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/date -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/date"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#altLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#altLabel"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#example -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#example"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#advisorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#advisorOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasAdvisor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:comment>Relates a supervisor to the FYP they advise</rdfs:comment>
+        <rdfs:label>advisor of</rdfs:label>
+        <skos:definition>Connects a supervisor to the FYP they provide guidance for</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#approvedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#approvedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#approves"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <dc:description>Tracks which coordinator has reviewed and approved the completion of specific weekly tasks</dc:description>
+        <rdfs:comment>Indicates coordinator approval of completed tasks</rdfs:comment>
+        <rdfs:label>approved by</rdfs:label>
+        <skos:definition>Links a task to the coordinator who approved its completion</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#approvedByCommittee -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#approvedByCommittee">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#approvesProposal"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Proposal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <dc:description>Establishes that a project proposal has received formal committee approval, allowing it to proceed</dc:description>
+        <rdfs:comment>Links a proposal to the approving committee</rdfs:comment>
+        <rdfs:label>approved by committee</rdfs:label>
+        <skos:definition>Indicates that a project proposal has been approved by the capstone committee</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#approves -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#approves">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:comment>Relates coordinators to tasks they approve</rdfs:comment>
+        <rdfs:label>approves</rdfs:label>
+        <skos:definition>Connects a coordinator to weekly tasks they have reviewed and approved</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#approvesProposal -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#approvesProposal">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Proposal"/>
+        <rdfs:comment>Relates committees to proposals they approve</rdfs:comment>
+        <rdfs:label>approves proposal</rdfs:label>
+        <skos:definition>Connects a committee to project proposals it has formally approved</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#belongsToGroup -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#belongsToGroup">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasGroupMember"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <dc:description>Associates individual students with their project group, establishing team membership</dc:description>
+        <rdfs:comment>Links students to their capstone group</rdfs:comment>
+        <rdfs:label>belongs to group</rdfs:label>
+        <skos:definition>Indicates which group a student belongs to for the FYP</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#comesAfterPhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#comesAfterPhase">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#comesBeforePhase"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:comment>Indicates the reverse sequence of project phases</rdfs:comment>
+        <rdfs:label>comes after phase</rdfs:label>
+        <skos:definition>Establishes reverse temporal ordering between project phases</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#comesBeforePhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#comesBeforePhase">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Defines the sequential relationship between phases, indicating which phase precedes another in the project timeline</dc:description>
+        <rdfs:comment>Indicates the sequence of project phases</rdfs:comment>
+        <rdfs:label>comes before phase</rdfs:label>
+        <skos:definition>Establishes temporal ordering between project phases</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#conductedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#conductedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#conducts"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>Links evaluation activities to the stakeholders responsible for conducting them</dc:description>
+        <rdfs:comment>Links evaluations to stakeholders who conduct them</rdfs:comment>
+        <rdfs:label>conducted by</rdfs:label>
+        <skos:definition>Identifies who performs specific evaluation activities</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#conducts -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#conducts">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:comment>Relates stakeholders to evaluations they conduct</rdfs:comment>
+        <rdfs:label>conducts</rdfs:label>
+        <skos:definition>Connects a stakeholder to evaluation activities they are responsible for performing</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#containsUseCase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#containsUseCase">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isUseCaseIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <dc:description>Connects the Software Requirements Specification to all use cases that describe system interactions</dc:description>
+        <rdfs:comment>Relates an SRS to its use cases</rdfs:comment>
+        <rdfs:label>contains use case</rdfs:label>
+        <skos:definition>Links an SRS document to the use cases it includes</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#coordinatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinatedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#coordinates"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <dc:description>Establishes the relationship between the FYP and the coordinator who manages the course and evaluation process</dc:description>
+        <rdfs:comment>Links an FYP to its coordinator</rdfs:comment>
+        <rdfs:label>coordinated by</rdfs:label>
+        <skos:definition>Connects an FYP to the faculty member coordinating the course</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#coordinates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinates">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:comment>Relates coordinators to FYPs they coordinate</rdfs:comment>
+        <rdfs:label>coordinates</rdfs:label>
+        <skos:definition>Connects a coordinator to FYPs they manage and oversee</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#coordinatorOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinatorOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasCoordinator"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:comment>Relates a coordinator to the FYP they coordinate</rdfs:comment>
+        <rdfs:label>coordinator of</rdfs:label>
+        <skos:definition>Connects a coordinator to the FYP course they manage</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#created -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#created">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#createdBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Document"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Poster"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Video"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:comment>Relates a student to artifacts they created</rdfs:comment>
+        <rdfs:label>created</rdfs:label>
+        <skos:definition>Connects a student to documents, videos, or posters they authored</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#createdBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#createdBy">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Document"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Poster"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Video"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <dc:description>Establishes authorship of project artifacts including documents, videos, and posters, identifying the responsible student</dc:description>
+        <rdfs:comment>Identifies which student created a specific artifact</rdfs:comment>
+        <rdfs:label>created by</rdfs:label>
+        <skos:definition>Links an artifact to the student who authored or created it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#designsFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#designsFor">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#hasDesign"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#DesignDocument"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Connects design documents to the requirements they implement, showing how requirements are translated into design specifications</dc:description>
+        <rdfs:comment>Relates design documents to requirements</rdfs:comment>
+        <rdfs:label>designs for</rdfs:label>
+        <skos:definition>Links design documents to the requirements they address</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#evaluates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluates">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#undergoes"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:comment>Relates evaluations to FYPs they assess</rdfs:comment>
+        <rdfs:label>evaluates</rdfs:label>
+        <skos:definition>Connects evaluation activities to the FYPs they are assessing</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#evaluatesPhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluatesPhase">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isEvaluatedIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Indicates which project phase is being evaluated in a particular evaluation activity</dc:description>
+        <rdfs:comment>Links evaluations to specific project phases</rdfs:comment>
+        <rdfs:label>evaluates phase</rdfs:label>
+        <skos:definition>Connects evaluation activities to the project phases they assess</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#examines -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#examines">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isExaminedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Examiner"/>
+        <dc:description>Establishes the evaluation relationship between faculty examiners and the projects they are assigned to evaluate</dc:description>
+        <rdfs:comment>Links examiners to projects they evaluate</rdfs:comment>
+        <rdfs:label>examines</rdfs:label>
+        <skos:definition>Connects examiners to the FYPs they assess</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#externallyEvaluates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#externallyEvaluates">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+        <dc:description>Establishes the assessment relationship between external evaluators and the projects they evaluate</dc:description>
+        <rdfs:comment>Links external evaluators to projects they assess</rdfs:comment>
+        <rdfs:label>externally evaluates</rdfs:label>
+        <skos:definition>Connects external evaluators to the FYPs they provide independent assessment for</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#fulfillsRequirement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#fulfillsRequirement">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isFullfilledBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Establishes traceability between use cases and the requirements they implement or address</dc:description>
+        <rdfs:comment>Relates a use case to requirements it fulfills</rdfs:comment>
+        <rdfs:label>fulfills requirement</rdfs:label>
+        <skos:definition>Links a use case to the requirements it satisfies</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasActor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasActor">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isActorIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+        <dc:description>Links a use case to all actors (users, systems, or entities) that interact with the system in that scenario</dc:description>
+        <rdfs:comment>Relates a use case to its actors</rdfs:comment>
+        <rdfs:label>has actor</rdfs:label>
+        <skos:definition>Identifies the actors who participate in a use case</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasAdvisor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasAdvisor">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <dc:description>Establishes the supervisory relationship between a Final Year Project and the academic staff member who provides guidance and oversight</dc:description>
+        <rdfs:comment>Relates a FYP to its academic advisor</rdfs:comment>
+        <rdfs:label>has advisor</rdfs:label>
+        <skos:definition>The relationship between an FYP and its supervising faculty member</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasAlternateScenario -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasAlternateScenario">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isAlternateScenarioOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#AlternateScenario"/>
+        <dc:description>Connects a use case to scenarios that handle exceptions, errors, or alternative paths in the interaction</dc:description>
+        <rdfs:comment>Relates a use case to its alternate scenarios</rdfs:comment>
+        <rdfs:label>has alternate scenario</rdfs:label>
+        <skos:definition>Links a use case to alternative or exception flows</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasCoordinator -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasCoordinator">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <dc:description>Connects the Final Year Project to the coordinator overseeing the FYP process, timeline tracking, and administrative coordination</dc:description>
+        <rdfs:comment>Relates a FYP to its course coordinator</rdfs:comment>
+        <rdfs:label>has coordinator</rdfs:label>
+        <skos:definition>Links an FYP to the faculty member responsible for coordinating the FYP course</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasDesign -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasDesign">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#DesignDocument"/>
+        <rdfs:comment>Relates requirements to design documents that address them</rdfs:comment>
+        <rdfs:label>has design</rdfs:label>
+        <skos:definition>Connects requirements to the design documents that translate them into design specifications</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasExpertiseIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasExpertiseIn">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isExpertiseOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#SupervisorExpertise"/>
+        <dc:description>Indicates the specific technical or research domains in which a supervisor specializes</dc:description>
+        <rdfs:comment>Links supervisors to their areas of expertise</rdfs:comment>
+        <rdfs:label>has expertise in</rdfs:label>
+        <skos:definition>Connects supervisors to their specialized domains of knowledge</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasFailureContingency -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasFailureContingency">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isFailureContingencyFor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
+        <dc:description>Establishes the relationship between a project and its contingency measures for addressing failure or incompletion</dc:description>
+        <rdfs:comment>Links an FYP to its failure contingency plan</rdfs:comment>
+        <rdfs:label>has failure contingency</rdfs:label>
+        <skos:definition>Connects an FYP to procedures for handling incomplete or unsuccessful outcomes</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasFinalEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasFinalEvaluation">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isFinalEvaluationOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
+        <dc:description>Establishes the relationship between a project and its final evaluation, which includes demonstrations and comprehensive report submissions</dc:description>
+        <rdfs:comment>Links an FYP to its final evaluation</rdfs:comment>
+        <rdfs:label>has final evaluation</rdfs:label>
+        <skos:definition>Connects an FYP to the comprehensive evaluation conducted during Capstone II</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasGroupMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasGroupMember">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:comment>Relates a capstone group to its student members</rdfs:comment>
+        <rdfs:label>has group member</rdfs:label>
+        <skos:definition>Connects a project group to the students who belong to it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasLeader -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasLeader">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isLeaderOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <dc:description>Designates which student team member takes on the leadership role, coordinating team activities and serving as the primary contact</dc:description>
+        <rdfs:comment>Relates a FYP to its team leader</rdfs:comment>
+        <rdfs:label>has leader</rdfs:label>
+        <skos:definition>Identifies the student who serves as the team leader for the FYP</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasMember">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#memberOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Coordinator"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Supervisor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:comment>Relates committees to their faculty members</rdfs:comment>
+        <rdfs:label>has member</rdfs:label>
+        <skos:definition>Connects a committee to the faculty members who serve on it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasMidSemesterEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasMidSemesterEvaluation">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isMidSemesterEvaluationOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
+        <dc:description>Establishes the relationship between a project and its mid-semester evaluation, which includes poster displays and demonstrations</dc:description>
+        <rdfs:comment>Links an FYP to its mid-semester evaluation</rdfs:comment>
+        <rdfs:label>has mid-semester evaluation</rdfs:label>
+        <skos:definition>Connects an FYP to the mid-term evaluation conducted during Capstone I</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasParticipant">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#participatesIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:comment>Relates project phases to students who participate in them</rdfs:comment>
+        <rdfs:label>has participant</rdfs:label>
+        <skos:definition>Connects a project phase to students who are involved in its activities</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasPhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPhase">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isPhaseOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Connects the Final Year Project to its various development phases such as planning, implementation, and testing</dc:description>
+        <rdfs:comment>Relates a FYP to its project phases</rdfs:comment>
+        <rdfs:label>has phase</rdfs:label>
+        <skos:definition>Links an FYP to the different phases it goes through during its lifecycle</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasPostCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPostCondition">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isPostConditionOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#PostCondition"/>
+        <dc:description>Connects a use case to the system states or conditions that exist after the use case completes successfully</dc:description>
+        <rdfs:comment>Relates a use case to its post conditions</rdfs:comment>
+        <rdfs:label>has post condition</rdfs:label>
+        <skos:definition>Links a use case to the conditions that must be true after execution</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasPoster -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasPoster">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isPosterOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <dc:description>Associates a project with its poster presentation, used for exhibitions and evaluations</dc:description>
+        <rdfs:comment>Links an FYP to its poster presentation</rdfs:comment>
+        <rdfs:label>has poster</rdfs:label>
+        <skos:definition>Connects an FYP to its poster, which visually summarizes the project</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasProjectType -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasProjectType">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isProjectTypeOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <dc:description>Categorizes an FYP as either a development project or a research project, which affects its methodology and deliverables</dc:description>
+        <rdfs:comment>Links an FYP to its project type</rdfs:comment>
+        <rdfs:label>has project type</rdfs:label>
+        <skos:definition>Indicates whether a project is development-focused or research-focused</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasRequirement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasRequirement">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isRequirementIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Connects the Software Requirements Specification to all functional and non-functional requirements defined within it</dc:description>
+        <rdfs:comment>Relates an SRS to its requirements</rdfs:comment>
+        <rdfs:label>has requirement</rdfs:label>
+        <skos:definition>Links an SRS document to the requirements it contains</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasScenario -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasScenario">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isScenarioOf"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <dc:description>Connects a use case to the main scenario that describes the normal, expected sequence of interactions</dc:description>
+        <rdfs:comment>Relates a use case to its main scenario</rdfs:comment>
+        <rdfs:label>has scenario</rdfs:label>
+        <skos:definition>Links a use case to its primary flow of events</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasTeamMember -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasTeamMember">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isMemberOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <dc:description>This property links a Final Year Project to all students who are members of the project team, indicating their participation in the project</dc:description>
+        <rdfs:comment>Relates a FYP to its team members</rdfs:comment>
+        <rdfs:label>has team member</rdfs:label>
+        <skos:definition>A relationship that connects an FYP to the students who are working on it as team members</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasUser -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasUser">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#userOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#User"/>
+        <rdfs:comment>Relates an FYP to its end users</rdfs:comment>
+        <rdfs:label>has user</rdfs:label>
+        <skos:definition>Connects an FYP to the users of the system it develops</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasVideo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasVideo">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isVideoOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <dc:description>Associates a project with its video presentation, which demonstrates key features and functionality</dc:description>
+        <rdfs:comment>Links an FYP to its demonstration video</rdfs:comment>
+        <rdfs:label>has video</rdfs:label>
+        <skos:definition>Connects an FYP to its video presentation or demonstration</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hasWeeklyTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#hasWeeklyTask">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isWeeklyTaskIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <dc:description>Connects the implementation plan document to all weekly tasks that comprise the project schedule</dc:description>
+        <rdfs:comment>Relates an implementation plan to its weekly tasks</rdfs:comment>
+        <rdfs:label>has weekly task</rdfs:label>
+        <skos:definition>Links an implementation plan to the tasks scheduled for each week</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#implementsRequirement -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#implementsRequirement">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isImplementedBy"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Establishes traceability between weekly development tasks and the requirements they fulfill</dc:description>
+        <rdfs:comment>Relates weekly tasks to the requirements they implement</rdfs:comment>
+        <rdfs:label>implements requirement</rdfs:label>
+        <skos:definition>Links tasks to the requirements they are designed to implement</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#includesDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesDocument">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isDocumentOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>This property connects the Final Year Project to various documents created during the project lifecycle, including proposals, designs, and reports</dc:description>
+        <rdfs:comment>Relates a FYP to its associated documents</rdfs:comment>
+        <rdfs:label>includes document</rdfs:label>
+        <skos:definition>Links an FYP to all documents produced as part of the project</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#includesPoster -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesPoster">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#partOfMidSemesterEvaluation"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:comment>Relates a mid-semester evaluation to posters used in it</rdfs:comment>
+        <rdfs:label>includes poster</rdfs:label>
+        <skos:definition>Connects a mid-semester evaluation to poster presentations displayed during it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#includesSpecificTest -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesSpecificTest">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#isSpecificTestIn"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#IntegrationTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#PerformanceTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SecurityTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SystemTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UnitTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UsabilityTesting"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <dc:description>Relates a general testing document to specialized test categories such as unit tests, integration tests, etc.</dc:description>
+        <rdfs:comment>Links testing documents to specific test types</rdfs:comment>
+        <rdfs:label>includes specific test</rdfs:label>
+        <skos:definition>Connects a testing document to the specific types of tests it contains</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#includesVideo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#includesVideo">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#partOfFinalEvaluation"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:comment>Relates a final evaluation to videos used in it</rdfs:comment>
+        <rdfs:label>includes video</rdfs:label>
+        <skos:definition>Connects a final evaluation to video demonstrations presented during it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isActorIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isActorIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates an actor to the use cases they participate in</rdfs:comment>
+        <rdfs:label>is actor in</rdfs:label>
+        <skos:definition>Connects an actor to use cases where they interact with the system</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isAlternateScenarioOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isAlternateScenarioOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#AlternateScenario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates an alternate scenario to its use case</rdfs:comment>
+        <rdfs:label>is alternate scenario of</rdfs:label>
+        <skos:definition>Connects an alternate flow to the use case it belongs to</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isDevelopedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isDevelopedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#worksOn"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:comment>Relates FYPs to groups that develop them</rdfs:comment>
+        <rdfs:label>is developed by</rdfs:label>
+        <skos:definition>Connects an FYP to the capstone group developing it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isDocumentOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isDocumentOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:comment>Relates a document to the FYP it belongs to</rdfs:comment>
+        <rdfs:label>is document of</rdfs:label>
+        <skos:definition>Connects a document to the FYP it was created for</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isEvaluatedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isEvaluatedIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:comment>Relates a project phase to the evaluations that assess it</rdfs:comment>
+        <rdfs:label>is evaluated in</rdfs:label>
+        <skos:definition>Connects a project phase to the evaluation activities that assess it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isExaminedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isExaminedBy">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Examiner"/>
+        <rdfs:comment>Relates FYPs to examiners who evaluate them</rdfs:comment>
+        <rdfs:label>is examined by</rdfs:label>
+        <skos:definition>Connects an FYP to the examiners assigned to assess it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isExpertiseOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isExpertiseOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SupervisorExpertise"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:comment>Relates domains of expertise to supervisors who possess them</rdfs:comment>
+        <rdfs:label>is expertise of</rdfs:label>
+        <skos:definition>Connects areas of expertise to supervisors who specialize in them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isExternallyEvaluatedBy">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+        <rdfs:comment>Relates FYPs to external evaluators who assess them</rdfs:comment>
+        <rdfs:label>is externally evaluated by</rdfs:label>
+        <skos:definition>Connects an FYP to external evaluators who provide independent assessment</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isFailureContingencyFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isFailureContingencyFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
+        <rdfs:comment>Relates contingency plans to FYPs they apply to</rdfs:comment>
+        <rdfs:label>is failure contingency for</rdfs:label>
+        <skos:definition>Connects a failure contingency plan to the FYP it was created for</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isFinalEvaluationOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isFinalEvaluationOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
+        <rdfs:comment>Relates a final evaluation to the FYP it assesses</rdfs:comment>
+        <rdfs:label>is final evaluation of</rdfs:label>
+        <skos:definition>Connects a final evaluation to the FYP being evaluated</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isFullfilledBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isFullfilledBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates requirements to use cases that fulfill them</rdfs:comment>
+        <rdfs:label>is fulfilled by</rdfs:label>
+        <skos:definition>Connects requirements to the use cases that implement or address them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isImplementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isImplementedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:comment>Relates requirements to weekly tasks that implement them</rdfs:comment>
+        <rdfs:label>is implemented by</rdfs:label>
+        <skos:definition>Connects requirements to the weekly tasks that implement them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isLeaderOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isLeaderOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <dc:description>Identifies which student serves as the leader of a project group, responsible for coordination and communication</dc:description>
+        <rdfs:comment>Identifies a student as group leader</rdfs:comment>
+        <rdfs:label>is leader of</rdfs:label>
+        <skos:definition>Designates a student as the leader of a capstone group</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isMemberOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:comment>Relates students to the FYP they work on</rdfs:comment>
+        <rdfs:label>is member of</rdfs:label>
+        <skos:definition>Connects a student to the FYP team they belong to</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isMidSemesterEvaluationOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isMidSemesterEvaluationOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
+        <rdfs:comment>Relates a mid-semester evaluation to the FYP it assesses</rdfs:comment>
+        <rdfs:label>is mid-semester evaluation of</rdfs:label>
+        <skos:definition>Connects a mid-semester evaluation to the FYP being evaluated</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isOverseen -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isOverseen">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#oversees"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:comment>Relates project phases to committees that oversee them</rdfs:comment>
+        <rdfs:label>is overseen</rdfs:label>
+        <skos:definition>Connects a project phase to the committee responsible for its oversight</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isPerformedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPerformedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#performsAssessment"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>Relates assessments to stakeholders who perform them</rdfs:comment>
+        <rdfs:label>is performed by</rdfs:label>
+        <skos:definition>Connects assessment activities to the stakeholders who conduct them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isPhaseOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPhaseOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:comment>Relates a project phase to the FYP it belongs to</rdfs:comment>
+        <rdfs:label>is phase of</rdfs:label>
+        <skos:definition>Connects a project phase to the FYP it is part of</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isPostConditionOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPostConditionOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#PostCondition"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates a post condition to its use case</rdfs:comment>
+        <rdfs:label>is post condition of</rdfs:label>
+        <skos:definition>Connects a post condition to the use case it belongs to</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isPosterOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isPosterOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:comment>Relates a poster to the FYP it belongs to</rdfs:comment>
+        <rdfs:label>is poster of</rdfs:label>
+        <skos:definition>Connects a poster presentation to the FYP it represents</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isProducedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isProducedIn">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#produces"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:comment>Relates a document to the project phase in which it&apos;s produced</rdfs:comment>
+        <rdfs:label>is produced in</rdfs:label>
+        <skos:definition>Connects a document to the project phase during which it is created</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isProjectTypeOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isProjectTypeOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <rdfs:comment>Relates a project type to FYPs of that type</rdfs:comment>
+        <rdfs:label>is project type of</rdfs:label>
+        <skos:definition>Connects a project type to FYPs classified as that type</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isRelatedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isRelatedTo">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#relatesTo"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates project phases to use cases relevant to them</rdfs:comment>
+        <rdfs:label>is related to</rdfs:label>
+        <skos:definition>Connects project phases to use cases that are analyzed, designed, or implemented during them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isRequirementIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isRequirementIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:comment>Relates requirements to the SRS that contains them</rdfs:comment>
+        <rdfs:label>is requirement in</rdfs:label>
+        <skos:definition>Connects a requirement to the SRS document where it is defined</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isResponsibilityOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isResponsibilityOf">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#responsibleFor"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:comment>Relates a task to the student responsible for it</rdfs:comment>
+        <rdfs:label>is responsibility of</rdfs:label>
+        <skos:definition>Connects a weekly task to the student assigned to complete it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isReviewedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isReviewedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#reviewsDocument"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:comment>Relates documents to stakeholders who review them</rdfs:comment>
+        <rdfs:label>is reviewed by</rdfs:label>
+        <skos:definition>Connects a document to stakeholders responsible for reviewing it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isScenarioOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isScenarioOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:comment>Relates a scenario to its use case</rdfs:comment>
+        <rdfs:label>is scenario of</rdfs:label>
+        <skos:definition>Connects a main scenario to the use case it belongs to</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isSpecificTestIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isSpecificTestIn">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#IntegrationTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#PerformanceTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SecurityTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SystemTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UnitTesting"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UsabilityTesting"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:comment>Relates a specific test type to the testing document containing it</rdfs:comment>
+        <rdfs:label>is specific test in</rdfs:label>
+        <skos:definition>Connects a specialized test to the testing document that includes it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isSupervisedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isSupervisedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#supervises"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:comment>Relates project phases to supervisors who oversee them</rdfs:comment>
+        <rdfs:label>is supervised by</rdfs:label>
+        <skos:definition>Connects a project phase to supervisors responsible for monitoring and guiding it</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isUseCaseIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isUseCaseIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:comment>Relates a use case to the SRS that contains it</rdfs:comment>
+        <rdfs:label>is use case in</rdfs:label>
+        <skos:definition>Connects a use case to the SRS document where it is defined</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isUsedInAssessment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isUsedInAssessment">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#usesCriteria"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+        <rdfs:comment>Relates evaluation criteria to assessments that use them</rdfs:comment>
+        <rdfs:label>is used in assessment</rdfs:label>
+        <skos:definition>Connects evaluation criteria to assessment activities where they are applied</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isUtilizedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isUtilizedIn">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#utilizes"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <rdfs:comment>Relates technologies to the FYP that uses them</rdfs:comment>
+        <rdfs:label>is utilized in</rdfs:label>
+        <skos:definition>Connects a technology to the FYP where it is employed</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isVideoOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isVideoOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:comment>Relates a video to the FYP it demonstrates</rdfs:comment>
+        <rdfs:label>is video of</rdfs:label>
+        <skos:definition>Connects a video demonstration to the FYP it represents</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#isWeeklyTaskIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#isWeeklyTaskIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+        <rdfs:comment>Relates weekly tasks to the implementation plan containing them</rdfs:comment>
+        <rdfs:label>is weekly task in</rdfs:label>
+        <skos:definition>Connects a weekly task to the implementation plan where it is defined</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#memberOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#memberOf">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Coordinator"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Supervisor"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <dc:description>Establishes committee membership for faculty involved in the FYP oversight process</dc:description>
+        <rdfs:comment>Links faculty to the committees they belong to</rdfs:comment>
+        <rdfs:label>member of</rdfs:label>
+        <skos:definition>Indicates that a faculty member is part of the capstone committee</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#oversees -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#oversees">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Establishes the oversight responsibility of the committee for specific project phases</dc:description>
+        <rdfs:comment>Links committee to phases it oversees</rdfs:comment>
+        <rdfs:label>oversees</rdfs:label>
+        <skos:definition>Indicates which project phases are overseen by the capstone committee</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#partOfFinalEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#partOfFinalEvaluation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FinalEvaluation"/>
+        <dc:description>Establishes that a video demonstration is a component of the final evaluation process</dc:description>
+        <rdfs:comment>Links a video to final evaluation</rdfs:comment>
+        <rdfs:label>part of final evaluation</rdfs:label>
+        <skos:definition>Indicates that a video is used in the final evaluation</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#partOfMidSemesterEvaluation -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#partOfMidSemesterEvaluation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation"/>
+        <dc:description>Establishes that a poster is a component of the mid-semester evaluation process</dc:description>
+        <rdfs:comment>Links a poster to mid-semester evaluation</rdfs:comment>
+        <rdfs:label>part of mid-semester evaluation</rdfs:label>
+        <skos:definition>Indicates that a poster is used in the mid-semester evaluation</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#participatesIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#participatesIn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Links students to specific project phases where they have active involvement or responsibilities</dc:description>
+        <rdfs:comment>Relates students to the project phases they participate in</rdfs:comment>
+        <rdfs:label>participates in</rdfs:label>
+        <skos:definition>Indicates which project phases a student is involved in</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#performsAssessment -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#performsAssessment">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+        <dc:description>Connects stakeholders to the assessment activities they are responsible for performing</dc:description>
+        <rdfs:comment>Links stakeholders to assessments they perform</rdfs:comment>
+        <rdfs:label>performs assessment</rdfs:label>
+        <skos:definition>Identifies which stakeholders conduct specific assessments</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#produces -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#produces">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>Links project phases to the documents that are typically produced or delivered during that phase</dc:description>
+        <rdfs:comment>Relates project phases to documents they produce</rdfs:comment>
+        <rdfs:label>produces</rdfs:label>
+        <skos:definition>Indicates which documents are created during specific project phases</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#promotedAt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotedAt">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#promotes"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <dc:description>Establishes the relationship between projects and promotional events where they are demonstrated or showcased</dc:description>
+        <rdfs:comment>Links FYPs to events where they are promoted</rdfs:comment>
+        <rdfs:label>promoted at</rdfs:label>
+        <skos:definition>Connects FYPs to showcases, exhibitions, or competitions where they are presented</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#promotes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <rdfs:comment>Relates promotional events to FYPs they showcase</rdfs:comment>
+        <rdfs:label>promotes</rdfs:label>
+        <skos:definition>Connects a promotional event to the FYPs being presented or demonstrated</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#relatesTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#relatesTo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Connects use cases to the project phases during which they are analyzed, designed, or implemented</dc:description>
+        <rdfs:comment>Relates use cases to project phases</rdfs:comment>
+        <rdfs:label>relates to</rdfs:label>
+        <skos:definition>Links use cases to the project phases where they are relevant</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#responsibleFor -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#responsibleFor">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <dc:description>Links students to the weekly tasks they are responsible for completing</dc:description>
+        <rdfs:comment>Relates students to their assigned tasks</rdfs:comment>
+        <rdfs:label>responsible for</rdfs:label>
+        <skos:definition>Indicates which tasks are assigned to specific students</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#reviewsDocument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#reviewsDocument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>Indicates which stakeholders review specific documents during the project lifecycle</dc:description>
+        <rdfs:comment>Relates stakeholders to documents they review</rdfs:comment>
+        <rdfs:label>reviews document</rdfs:label>
+        <skos:definition>Links stakeholders to documents they are responsible for reviewing</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#supervisedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#supervisedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#supervises"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <dc:description>Establishes the supervisory relationship between a project group and the faculty member providing guidance</dc:description>
+        <rdfs:comment>Links a group to its supervisor</rdfs:comment>
+        <rdfs:label>supervised by</rdfs:label>
+        <skos:definition>Connects a capstone group to their faculty supervisor</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#supervises -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#supervises">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>Links supervisors to the specific project phases they are responsible for monitoring and guiding</dc:description>
+        <rdfs:comment>Relates supervisors to project phases they oversee</rdfs:comment>
+        <rdfs:label>supervises</rdfs:label>
+        <skos:definition>Indicates which project phases are supervised by specific supervisors</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#testedIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#testedIn">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#tests"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Establishes traceability between requirements and the testing documents that contain test cases for verifying those requirements</dc:description>
+        <rdfs:comment>Relates requirements to testing documents</rdfs:comment>
+        <rdfs:label>tested in</rdfs:label>
+        <skos:definition>Links requirements to the test documents that verify them</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#tests -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#tests">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:comment>Relates testing documents to requirements they verify</rdfs:comment>
+        <rdfs:label>tests</rdfs:label>
+        <skos:definition>Connects a testing document to requirements it verifies</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#undergoes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#undergoes">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <dc:description>Connects the Final Year Project to various evaluation activities conducted throughout its lifecycle</dc:description>
+        <rdfs:comment>Relates a FYP to evaluations it undergoes</rdfs:comment>
+        <rdfs:label>undergoes</rdfs:label>
+        <skos:definition>Links an FYP to the evaluation processes it is subjected to</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#userOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#userOf">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#User"/>
+        <dc:description>Establishes the relationship between end users and the systems or applications created in FYPs</dc:description>
+        <rdfs:comment>Links end users to the systems they use</rdfs:comment>
+        <rdfs:label>user of</rdfs:label>
+        <skos:definition>Connects end users to the systems developed in FYPs</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#usesCriteria -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#usesCriteria">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+        <dc:description>Indicates which evaluation criteria are applied during specific assessment activities</dc:description>
+        <rdfs:comment>Links assessments to evaluation criteria used</rdfs:comment>
+        <rdfs:label>uses criteria</rdfs:label>
+        <skos:definition>Connects assessments to the specific criteria used for evaluation</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#utilizes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#utilizes">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>Links the Final Year Project to all technologies, frameworks, languages, and tools used in its implementation</dc:description>
+        <rdfs:comment>Relates a FYP to the technologies it uses</rdfs:comment>
+        <rdfs:label>utilizes</rdfs:label>
+        <skos:definition>Indicates which technologies are employed in the development of the FYP</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#worksOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#worksOn">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <dc:description>Establishes the relationship between a project team and their Final Year Project</dc:description>
+        <rdfs:comment>Links a group to its FYP</rdfs:comment>
+        <rdfs:label>works on</rdfs:label>
+        <skos:definition>Connects a capstone group to the specific FYP they are developing</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#actorType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#actorType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Categorizes actors by their type, such as human users, external systems, or time-based triggers</dc:description>
+        <rdfs:comment>The type or role of the actor in the system</rdfs:comment>
+        <rdfs:label>actor type</rdfs:label>
+        <skos:definition>Classification of the actor based on their role or nature</skos:definition>
+        <skos:example>Primary User, Secondary User, External System, Timer</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#alternateScenarioDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#alternateScenarioDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#AlternateScenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes what happens when the main scenario cannot proceed normally, including error conditions and alternative user choices</dc:description>
+        <rdfs:comment>Description of an alternative flow in a use case</rdfs:comment>
+        <rdfs:label>alternate scenario description</rdfs:label>
+        <skos:definition>A textual description of an alternative path or exception handling in a use case</skos:definition>
+        <skos:example>If login fails, system displays error and allows retry</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#assessmentResult -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#assessmentResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Assessment"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <dc:description>The quantitative result of an assessment, typically expressed as a percentage, grade point, or score on a defined scale</dc:description>
+        <rdfs:comment>Numerical result of assessment</rdfs:comment>
+        <rdfs:label>assessment result</rdfs:label>
+        <skos:definition>A numeric score representing the outcome of an assessment activity</skos:definition>
+        <skos:example>85.5, 92.0, 3.75, 8.5/10</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#assignmentDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#assignmentDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Records when a weekly task was formally assigned, enabling tracking of task duration and timeline adherence</dc:description>
+        <rdfs:comment>Date when the task was assigned</rdfs:comment>
+        <rdfs:label>assignment date</rdfs:label>
+        <skos:definition>The calendar date on which a task was officially assigned to team members</skos:definition>
+        <skos:example>2024-01-15, 2024-02-01</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#committeeId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#committeeId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to reference and track the committee in administrative systems</dc:description>
+        <rdfs:comment>Unique identifier for the committee</rdfs:comment>
+        <rdfs:label>committee ID</rdfs:label>
+        <skos:definition>A unique identifier for the capstone committee</skos:definition>
+        <skos:example>COMM-2024, FYP-COMM-CS</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#committeeSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#committeeSize">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneCommittee"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>Indicates the size of the committee responsible for overseeing the FYP process</dc:description>
+        <rdfs:comment>Number of members in the committee</rdfs:comment>
+        <rdfs:label>committee size</rdfs:label>
+        <skos:definition>The total number of faculty members serving on the capstone committee</skos:definition>
+        <skos:example>3, 5, 7</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#completionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#completionDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Records the actual completion date of tasks, useful for tracking project progress and comparing against planned schedules</dc:description>
+        <rdfs:comment>Date when the task was completed</rdfs:comment>
+        <rdfs:label>completion date</rdfs:label>
+        <skos:definition>The calendar date on which a task was finished and marked as complete</skos:definition>
+        <skos:example>2024-01-22, 2024-02-10</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#complexity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#complexity">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Indicates the relative complexity of the project based on technical challenges, scope, and innovation requirements</dc:description>
+        <rdfs:comment>Complexity level of the project</rdfs:comment>
+        <rdfs:label>complexity</rdfs:label>
+        <skos:definition>An assessment of the technical difficulty and complexity of the project</skos:definition>
+        <skos:example>Low, Medium, High, Very High</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#contingencyPlan -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#contingencyPlan">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Outlines the procedures, options, and timelines available when a project fails to meet requirements</dc:description>
+        <rdfs:comment>Plan for handling project failure</rdfs:comment>
+        <rdfs:label>contingency plan</rdfs:label>
+        <skos:definition>A documented strategy for addressing incomplete or unsuccessful projects</skos:definition>
+        <skos:example>Revision of existing project, Submission of new proposal within 2 weeks</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#coordinatorRole -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#coordinatorRole">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Coordinator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes the primary responsibilities and duties assigned to the FYP coordinator</dc:description>
+        <rdfs:comment>Specific role or responsibilities of the coordinator</rdfs:comment>
+        <rdfs:label>coordinator role</rdfs:label>
+        <skos:definition>The particular administrative or academic function of the coordinator in the FYP process</skos:definition>
+        <skos:example>Course Management, Assessment Coordination, Resource Allocation</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#criteriaDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#criteriaDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Provides comprehensive details about what aspects of the project are evaluated by this criterion and how it should be applied</dc:description>
+        <rdfs:comment>Description of evaluation criteria</rdfs:comment>
+        <rdfs:label>criteria description</rdfs:label>
+        <skos:definition>Detailed explanation of what an evaluation criterion measures</skos:definition>
+        <skos:example>Evaluates the novelty and creativity of the technical solution implemented in the project</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#criteriaName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#criteriaName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Criteria"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>A concise name that identifies a particular evaluation criterion used in assessing project quality or performance</dc:description>
+        <rdfs:comment>Name of evaluation criteria</rdfs:comment>
+        <rdfs:label>criteria name</rdfs:label>
+        <skos:definition>The identifying name or title of a specific evaluation criterion</skos:definition>
+        <skos:example>Technical Innovation, Code Quality, Documentation Completeness, Presentation Skills</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#description">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>The description provides an in-depth explanation of what the project does, why it&apos;s needed, and what problems it solves. It serves as a detailed overview for stakeholders and evaluators</dc:description>
+        <rdfs:comment>A detailed description of the project</rdfs:comment>
+        <rdfs:label>description</rdfs:label>
+        <skos:definition>A comprehensive text that explains the project&apos;s purpose, scope, features, and objectives</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#documentVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#documentVersion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Tracks document revisions to maintain version control and document history throughout the project lifecycle</dc:description>
+        <rdfs:comment>Version number of the document</rdfs:comment>
+        <rdfs:label>document version</rdfs:label>
+        <skos:definition>The version or revision number of a project document</skos:definition>
+        <skos:example>1.0, 2.3, 3.0.1</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#evaluationCriteria -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationCriteria">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Details the particular standards, metrics, or guidelines used to assess project quality during evaluation activities</dc:description>
+        <rdfs:comment>Specific criteria used for evaluation</rdfs:comment>
+        <rdfs:label>evaluation criteria</rdfs:label>
+        <skos:definition>A textual description of the specific criteria applied during an evaluation</skos:definition>
+        <skos:example>Technical complexity and innovation, Quality of documentation, Presentation effectiveness, Code maintainability</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#evaluationFeedback -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationFeedback">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Detailed textual feedback from evaluators explaining strengths, weaknesses, and improvement areas for the project</dc:description>
+        <rdfs:comment>Textual feedback provided in an evaluation</rdfs:comment>
+        <rdfs:label>evaluation feedback</rdfs:label>
+        <skos:definition>Written comments and suggestions provided during project evaluation</skos:definition>
+        <skos:example>Excellent implementation but documentation needs improvement</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#evaluationScore -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#evaluationScore">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <dc:description>The score assigned during evaluation activities, typically on a scale (e.g., 0-100) to measure project quality and student performance</dc:description>
+        <rdfs:comment>The numerical score given in an evaluation</rdfs:comment>
+        <rdfs:label>evaluation score</rdfs:label>
+        <skos:definition>A numeric value representing the assessment result of a project evaluation</skos:definition>
+        <skos:example>85.5, 92.0, 78.25</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#eventDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#eventDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Records when project showcases, exhibitions, or competitions are scheduled</dc:description>
+        <rdfs:comment>Date of the promotion event</rdfs:comment>
+        <rdfs:label>event date</rdfs:label>
+        <skos:definition>The calendar date when a project promotion event takes place</skos:definition>
+        <skos:example>2024-05-15, 2024-06-10</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#eventName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#eventName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Identifies specific events, exhibitions, or competitions where students present their FYP work</dc:description>
+        <rdfs:comment>Name of the promotion event</rdfs:comment>
+        <rdfs:label>event name</rdfs:label>
+        <skos:definition>The official name of an event where FYPs are showcased or exhibited</skos:definition>
+        <skos:example>SPARKERPOI, CEPEX, PROCOM, Innovation Showcase</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#examinerSpecialization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#examinerSpecialization">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Examiner"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Identifies the examiner&apos;s specialization area, which influences their suitability for evaluating specific types of projects</dc:description>
+        <rdfs:comment>Area of expertise of the examiner</rdfs:comment>
+        <rdfs:label>examiner specialization</rdfs:label>
+        <skos:definition>The specific technical or academic domain in which the examiner has expertise</skos:definition>
+        <skos:example>Artificial Intelligence, Database Systems, Software Engineering, Computer Networks</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#expectedResult -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#expectedResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies what should happen when the test is run successfully, providing a baseline for comparison with actual results</dc:description>
+        <rdfs:comment>Expected outcome of the test case</rdfs:comment>
+        <rdfs:label>expected result</rdfs:label>
+        <skos:definition>The anticipated result or system behavior when the test case is executed</skos:definition>
+        <skos:example>User is redirected to dashboard, Error message is displayed, Data is saved to database</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#expertise -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#expertise">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Identifies the professional expertise of the external evaluator, which informs their ability to assess specific aspects of projects</dc:description>
+        <rdfs:comment>Area of expertise of the external evaluator</rdfs:comment>
+        <rdfs:label>expertise</rdfs:label>
+        <skos:definition>The specific technical or industry domain in which the external evaluator specializes</skos:definition>
+        <skos:example>Machine Learning, Cybersecurity, Web Development, Data Analytics</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#expertiseArea -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#expertiseArea">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SupervisorExpertise"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Identifies the specific areas of knowledge and skill that the supervisor brings to the project guidance</dc:description>
+        <rdfs:comment>Specific domain expertise of supervisor</rdfs:comment>
+        <rdfs:label>expertise area</rdfs:label>
+        <skos:definition>The technical or academic domain in which the supervisor specializes</skos:definition>
+        <skos:example>Machine Learning, Big Data, Networks, Security, Software Engineering</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#expertiseLevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#expertiseLevel">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SupervisorExpertise"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Indicates the depth of the supervisor&apos;s knowledge in their domain of specialization</dc:description>
+        <rdfs:comment>Level of expertise in the domain</rdfs:comment>
+        <rdfs:label>expertise level</rdfs:label>
+        <skos:definition>The degree of knowledge and experience the supervisor has in their area of expertise</skos:definition>
+        <skos:example>Beginner, Intermediate, Advanced, Expert</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#groupId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#groupId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to uniquely identify and track project groups within the academic system</dc:description>
+        <rdfs:comment>Unique identifier for the capstone group</rdfs:comment>
+        <rdfs:label>group ID</rdfs:label>
+        <skos:definition>A unique alphanumeric code assigned to each capstone project group</skos:definition>
+        <skos:example>GRP-2024-001, FYP-G-CS-22</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#groupSize -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#groupSize">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#CapstoneGroup"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>Indicates how many students are working together on the project, with a maximum limit of 3 students per group</dc:description>
+        <rdfs:comment>Number of students in the group</rdfs:comment>
+        <rdfs:label>group size</rdfs:label>
+        <skos:definition>The total number of student members in a capstone project group</skos:definition>
+        <skos:example>1, 2, 3</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#hardwareRequirement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#hardwareRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#HardwareInterface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Details the minimum and recommended hardware specifications required for the system to function properly</dc:description>
+        <rdfs:comment>Specification of required hardware</rdfs:comment>
+        <rdfs:label>hardware requirement</rdfs:label>
+        <skos:definition>Technical specifications for hardware components needed by the system</skos:definition>
+        <skos:example>Minimum 8GB RAM, Intel i5 processor, 256GB SSD</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#lastUpdateDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#lastUpdateDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Records when a document was last changed, allowing tracking of document currency and revision history</dc:description>
+        <rdfs:comment>Date of the last update to the document</rdfs:comment>
+        <rdfs:label>last update date</rdfs:label>
+        <skos:definition>The calendar date when the document was last modified or updated</skos:definition>
+        <skos:example>2024-02-15, 2024-03-22</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#organization -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#organization">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Identifies the professional affiliation of external evaluators who provide industry or academic perspective</dc:description>
+        <rdfs:comment>Affiliated organization of the external evaluator</rdfs:comment>
+        <rdfs:label>organization</rdfs:label>
+        <skos:definition>The company, institution, or organization with which the external evaluator is affiliated</skos:definition>
+        <skos:example>Microsoft, Google, IBM, Stanford University</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#personName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#personName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Records the name of any stakeholder involved in the FYP process, including students, supervisors, managers, and evaluators. Used for identification and communication purposes</dc:description>
+        <rdfs:comment>The name of the stakeholder</rdfs:comment>
+        <rdfs:label>person name</rdfs:label>
+        <skos:definition>The full name of a person involved in the FYP as a stakeholder</skos:definition>
+        <skos:example>John Smith, Dr. Jane Doe, Prof. Ahmad Hassan</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#phaseDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseDuration">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>Indicates the time duration in weeks for each phase of the project, helping in project planning and timeline management</dc:description>
+        <rdfs:comment>Duration of the phase in weeks</rdfs:comment>
+        <rdfs:label>phase duration</rdfs:label>
+        <skos:definition>The number of weeks allocated for completing a specific project phase</skos:definition>
+        <skos:example>Planning Phase: 3 weeks, Implementation Phase: 8 weeks</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#phaseEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseEndDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Indicates when a specific project phase is scheduled to end or actually ended, used for tracking phase duration and project milestones</dc:description>
+        <rdfs:comment>End date of the project phase</rdfs:comment>
+        <rdfs:label>phase end date</rdfs:label>
+        <skos:definition>The calendar date marking the completion of a project phase</skos:definition>
+        <skos:example>2024-02-28, 2024-05-30</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#phaseStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#phaseStartDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Indicates when a specific project phase officially begins, helping establish the project timeline and phase duration</dc:description>
+        <rdfs:comment>Start date of the project phase</rdfs:comment>
+        <rdfs:label>phase start date</rdfs:label>
+        <skos:definition>The calendar date marking the beginning of a project phase</skos:definition>
+        <skos:example>2024-01-01, 2024-03-15</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#postConditionDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#postConditionDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#PostCondition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes what must be true about the system after the use case completes successfully, including data changes and state updates</dc:description>
+        <rdfs:comment>Description of the state after use case completion</rdfs:comment>
+        <rdfs:label>post-condition description</rdfs:label>
+        <skos:definition>Textual description of the system state after successful use case execution</skos:definition>
+        <skos:example>User is logged in and session is active</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#posterDimensions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#posterDimensions">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies the physical size of the poster used for project exhibitions</dc:description>
+        <rdfs:comment>Physical dimensions of the poster</rdfs:comment>
+        <rdfs:label>poster dimensions</rdfs:label>
+        <skos:definition>The width and height measurements of the project poster</skos:definition>
+        <skos:example>36x48 inches, 24x36 inches, A0 size</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#posterFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#posterFormat">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Poster"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies the technical format of the digital poster file for printing and archiving</dc:description>
+        <rdfs:comment>Digital format of the poster file</rdfs:comment>
+        <rdfs:label>poster format</rdfs:label>
+        <skos:definition>The digital file format used for the project poster</skos:definition>
+        <skos:example>PDF, PNG, JPEG, PSD</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#preCondition -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#preCondition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes the necessary conditions, system state, or prerequisites that must be satisfied before a use case can start</dc:description>
+        <rdfs:comment>The conditions that must be true before the use case begins</rdfs:comment>
+        <rdfs:label>pre-condition</rdfs:label>
+        <skos:definition>States that must exist in the system before the use case can be executed</skos:definition>
+        <skos:example>User must be registered, System must be online, Database must be accessible</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#projectCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#projectCode">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used for administrative tracking and reference purposes</dc:description>
+        <rdfs:comment>The unique code identifier for the project</rdfs:comment>
+        <rdfs:label>project code</rdfs:label>
+        <skos:definition>A unique alphanumeric identifier assigned to distinguish this FYP from others</skos:definition>
+        <skos:example>FYP2024-CS-001</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#requirementDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#requirementDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Provides detailed information about the requirement, including its purpose, scope, and acceptance criteria</dc:description>
+        <rdfs:comment>Detailed description of the requirement</rdfs:comment>
+        <rdfs:label>requirement description</rdfs:label>
+        <skos:definition>A comprehensive explanation of what the requirement entails</skos:definition>
+        <skos:example>The system shall allow users to reset their password via email verification</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#requirementId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#requirementId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to uniquely identify and track requirements throughout the project lifecycle for traceability</dc:description>
+        <rdfs:comment>The unique identifier for a requirement</rdfs:comment>
+        <rdfs:label>requirement ID</rdfs:label>
+        <skos:definition>A unique alphanumeric code assigned to each requirement</skos:definition>
+        <skos:example>REQ-001, FR-101, NFR-201</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#revisionDeadline -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#revisionDeadline">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FailureContingency"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies the maximum time allowed for students to revise and resubmit incomplete projects</dc:description>
+        <rdfs:comment>Deadline for submitting revisions</rdfs:comment>
+        <rdfs:label>revision deadline</rdfs:label>
+        <skos:definition>The calendar date by which project revisions must be submitted</skos:definition>
+        <skos:example>2 weeks after notification, 10 working days from review</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#softwareRequirement -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#softwareRequirement">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#SoftwareInterface"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Lists the software components, libraries, and platforms required for the system to operate correctly</dc:description>
+        <rdfs:comment>Specification of required software</rdfs:comment>
+        <rdfs:label>software requirement</rdfs:label>
+        <skos:definition>Software dependencies and specifications needed for the system</skos:definition>
+        <skos:example>Windows 10 or later, MySQL 8.0+, Node.js 14+</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#status -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#status">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Tracks the progress status of tasks, helping monitor project advancement and identify potential delays</dc:description>
+        <rdfs:comment>Status of task (Not Started, In Progress, Completed, Delayed)</rdfs:comment>
+        <rdfs:label>status</rdfs:label>
+        <skos:definition>The current state of completion for a weekly task</skos:definition>
+        <skos:example>Not Started, In Progress, Completed, Delayed, On Hold, Cancelled</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#stepNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#stepNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>Numeric identifier indicating the order of execution for steps in a use case scenario</dc:description>
+        <rdfs:comment>The sequence number of the step in a scenario</rdfs:comment>
+        <rdfs:label>step number</rdfs:label>
+        <skos:definition>The ordinal position of a step within a use case scenario</skos:definition>
+        <skos:example>1, 2, 3, 4a, 4b</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#studentId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#studentId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to uniquely identify students in the academic system</dc:description>
+        <rdfs:comment>The unique identifier for a student</rdfs:comment>
+        <rdfs:label>student ID</rdfs:label>
+        <skos:definition>The institutional identification number assigned to each student</skos:definition>
+        <skos:example>BSCS51F21R000</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#submissionDate -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#submissionDate">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <dc:description>Tracks timeline compliance and project progress</dc:description>
+        <rdfs:comment>The date when the document was submitted</rdfs:comment>
+        <rdfs:label>submission date</rdfs:label>
+        <skos:definition>The calendar date on which a document or deliverable was officially submitted</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#systemReaction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#systemReaction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes how the system responds to each user action, including processing, validation, display updates, or error messages</dc:description>
+        <rdfs:comment>The system&apos;s response to a user action in a scenario</rdfs:comment>
+        <rdfs:label>system reaction</rdfs:label>
+        <skos:definition>The system&apos;s behavior or output in response to a user action</skos:definition>
+        <skos:example>Validates credentials, Displays dashboard, Shows error message</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#taskDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#taskDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Provides comprehensive details about the work to be done, including objectives, deliverables, and methods</dc:description>
+        <rdfs:comment>Description of the task to be completed</rdfs:comment>
+        <rdfs:label>task description</rdfs:label>
+        <skos:definition>Detailed explanation of what needs to be accomplished in a weekly task</skos:definition>
+        <skos:example>Design database schema including user, product, and order tables</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#technologyName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#technologyName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Records the specific name of a technology, framework, language, or tool utilized in the FYP development</dc:description>
+        <rdfs:comment>Name of the technology</rdfs:comment>
+        <rdfs:label>technology name</rdfs:label>
+        <skos:definition>The identifying name of a technology used in the project</skos:definition>
+        <skos:example>Python, React, MySQL, Docker, TensorFlow, Git</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#technologyVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#technologyVersion">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Records the exact version of technologies to ensure compatibility and reproducibility of the project environment</dc:description>
+        <rdfs:comment>The version number of the technology used</rdfs:comment>
+        <rdfs:label>technology version</rdfs:label>
+        <skos:definition>The specific version or release number of a technology component used in the project</skos:definition>
+        <skos:example>3.11.0, 14.18.1, 2.4.5</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#testCaseDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#testCaseDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes what feature, functionality, or requirement the test case is designed to verify</dc:description>
+        <rdfs:comment>Description of what is being tested</rdfs:comment>
+        <rdfs:label>test case description</rdfs:label>
+        <skos:definition>A detailed explanation of the functionality or aspect being verified by the test case</skos:definition>
+        <skos:example>Verify user login with valid credentials, Test product search functionality</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#testCaseId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#testCaseId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to uniquely identify and reference test cases in test documentation and traceability matrices</dc:description>
+        <rdfs:comment>Unique identifier for a test case</rdfs:comment>
+        <rdfs:label>test case ID</rdfs:label>
+        <skos:definition>A unique alphanumeric identifier assigned to each test case</skos:definition>
+        <skos:example>TC-001, UT-LOGIN-01, INT-PAY-003</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#testResult -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#testResult">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Records whether a test passed, failed, or was skipped, along with any relevant details about the test execution</dc:description>
+        <rdfs:comment>The outcome of a test execution</rdfs:comment>
+        <rdfs:label>test result</rdfs:label>
+        <skos:definition>The result status of a test case execution</skos:definition>
+        <skos:example>Pass, Fail, Skipped, Blocked</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#title">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>A concise, descriptive title that captures the essence of the project</dc:description>
+        <rdfs:comment>The title of the Final Year Project</rdfs:comment>
+        <rdfs:label>title</rdfs:label>
+        <skos:definition>The official name given to the FYP that describes its main focus or purpose</skos:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#typeDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#typeDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Provides detailed information about the nature, focus, and deliverables of a specific project type</dc:description>
+        <rdfs:comment>Detailed description of the project type</rdfs:comment>
+        <rdfs:label>type description</rdfs:label>
+        <skos:definition>A comprehensive explanation of what the project type entails</skos:definition>
+        <skos:example>Development of a software application with functional requirements, Research investigation with experimental methodology</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#useCaseId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#useCaseId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Used to uniquely identify and reference use cases in documentation and requirements traceability</dc:description>
+        <rdfs:comment>The unique identifier for a use case</rdfs:comment>
+        <rdfs:label>use case ID</rdfs:label>
+        <skos:definition>A unique alphanumeric identifier assigned to each use case</skos:definition>
+        <skos:example>UC-001, UC-LOGIN, UC-REG-01</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#useCaseTitle -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#useCaseTitle">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>A clear, concise title that describes what the use case accomplishes from the user&apos;s perspective</dc:description>
+        <rdfs:comment>The title of the use case</rdfs:comment>
+        <rdfs:label>use case title</rdfs:label>
+        <skos:definition>A descriptive name that summarizes the use case&apos;s purpose</skos:definition>
+        <skos:example>User Login, Create New Account, Submit Order</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#userAction -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#userAction">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Scenario"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Describes what the user does at each step of the use case scenario, including inputs, selections, or interactions</dc:description>
+        <rdfs:comment>The action performed by the user in a scenario step</rdfs:comment>
+        <rdfs:label>user action</rdfs:label>
+        <skos:definition>A specific action or input performed by the user during a use case step</skos:definition>
+        <skos:example>Clicks login button, Enters username, Selects product from list</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#userRole -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#userRole">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Defines the type of user based on their interaction with or relationship to the system</dc:description>
+        <rdfs:comment>The role of the user in the system</rdfs:comment>
+        <rdfs:label>user role</rdfs:label>
+        <skos:definition>The specific function or category of the user within the system</skos:definition>
+        <skos:example>Administrator, Regular User, Guest, Manager, Client</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#venueLocation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#venueLocation">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies the venue, building, or facility where students showcase their projects</dc:description>
+        <rdfs:comment>Location of the promotion event</rdfs:comment>
+        <rdfs:label>venue location</rdfs:label>
+        <skos:definition>The physical location where a project promotion event is held</skos:definition>
+        <skos:example>Main Auditorium, Exhibition Hall B, Conference Center</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#videoDuration -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#videoDuration">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies how long the video presentation lasts, typically measured in minutes and seconds</dc:description>
+        <rdfs:comment>Length of the project video in minutes</rdfs:comment>
+        <rdfs:label>video duration</rdfs:label>
+        <skos:definition>The total running time of the project demonstration video</skos:definition>
+        <skos:example>5:30, 7:15, 10:00</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#videoFormat -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#videoFormat">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#Video"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>Specifies the technical format of the video file for compatibility and archiving purposes</dc:description>
+        <rdfs:comment>File format of the video</rdfs:comment>
+        <rdfs:label>video format</rdfs:label>
+        <skos:definition>The digital file format used for the project demonstration video</skos:definition>
+        <skos:example>MP4, AVI, MOV, WEBM</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#weekNumber -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#weekNumber">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#WeeklyTask"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>Identifies which week of the project a particular task is planned to be executed, used for scheduling and progress tracking</dc:description>
+        <rdfs:comment>The week number for a task in the implementation plan</rdfs:comment>
+        <rdfs:label>week number</rdfs:label>
+        <skos:definition>The specific week in the project timeline when a task is scheduled</skos:definition>
+        <skos:example>1, 2, 3, 12</skos:example>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <owl:Class rdf:about="http://schema.org/Person"/>
+    
+
+
+    <!-- http://schema.org/Poster -->
+
+    <owl:Class rdf:about="http://schema.org/Poster"/>
+    
+
+
+    <!-- http://schema.org/Project -->
+
+    <owl:Class rdf:about="http://schema.org/Project">
+        <rdfs:subClassOf rdf:resource="https://schema.org/Project"/>
+        <dc:description>The Final Year Project (FYP) is a major academic undertaking that demonstrates students&apos; ability to apply their knowledge and skills to solve real-world problems. It acts as the culmination of the degree, akin to a &quot;capstone&quot; stone in architecture</dc:description>
+        <rdfs:comment>A two-semester process involving independent research/work on a chosen problem under faculty guidance</rdfs:comment>
+        <rdfs:label>Final Year Project</rdfs:label>
+        <skos:altLabel>Capstone Project</skos:altLabel>
+        <skos:definition>A comprehensive academic project completed by students in their final year of study, spanning two semesters and testing computing, analytical, algorithmic, and software engineering skills</skos:definition>
+        <skos:prefLabel>FYP</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#API -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#API">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>APIs enable integration with third-party services, providing access to external functionality, data, or resources. They can be RESTful, GraphQL, SOAP, or other protocols</dc:description>
+        <rdfs:comment>External APIs used in the project</rdfs:comment>
+        <rdfs:label>API</rdfs:label>
+        <skos:altLabel>External Service API</skos:altLabel>
+        <skos:definition>An interface that allows the FYP to communicate with external services or systems</skos:definition>
+        <skos:example>Google Maps API, PayPal API, Twitter API, Weather API, SMS Gateway API, OAuth providers, Cloud storage APIs</skos:example>
+        <skos:prefLabel>Application Programming Interface</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Actor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Actor">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <dc:description>Actors represent the different roles that interact with the system. They can be human users with specific roles, external systems, or other entities that exchange information with the system</dc:description>
+        <rdfs:comment>Actors who interact with the system</rdfs:comment>
+        <rdfs:label>Actor</rdfs:label>
+        <skos:altLabel>User Role</skos:altLabel>
+        <skos:definition>An entity (person, system, or organization) that interacts with the system being developed</skos:definition>
+        <skos:example>Administrator, End User, Guest User, External API, Payment Gateway, Reporting System</skos:example>
+        <skos:prefLabel>System Actor</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#AlternateScenario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#AlternateScenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <dc:description>Alternate scenarios describe what happens when things don&apos;t go as expected in the main flow, including error conditions, alternative choices, or exceptional circumstances</dc:description>
+        <rdfs:comment>Alternative flow of events in a use case</rdfs:comment>
+        <rdfs:label>Alternate Scenario</rdfs:label>
+        <skos:altLabel>Exception Flow</skos:altLabel>
+        <skos:definition>A variation from the main scenario that handles exceptions, errors, or alternative paths</skos:definition>
+        <skos:example>Invalid login credentials entered, network connection lost, insufficient permissions, user cancels operation</skos:example>
+        <skos:prefLabel>Alternative Flow</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Assessment -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Assessment">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <dc:description>Assessments are formal evaluation activities conducted at various project milestones. They include presentations, demonstrations, code reviews, documentation reviews, and final project evaluations</dc:description>
+        <rdfs:comment>Assessment of project deliverables or performance</rdfs:comment>
+        <rdfs:label>Assessment</rdfs:label>
+        <skos:altLabel>Performance Evaluation</skos:altLabel>
+        <skos:definition>A specific evaluation activity that measures project deliverables, student performance, or system quality against defined standards</skos:definition>
+        <skos:example>Mid-term presentation assessment, final demonstration evaluation, code quality review, documentation assessment, peer review</skos:example>
+        <skos:prefLabel>Project Assessment</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#CapstoneCommittee -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#CapstoneCommittee">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>The Capstone Committee is responsible for project approvals, scheduling, conflict resolution, and making decisions on incomplete projects, including allowing revisions or new proposals within specified timeframes</dc:description>
+        <rdfs:comment>Committee that oversees the FYP process</rdfs:comment>
+        <rdfs:label>Capstone Committee</rdfs:label>
+        <skos:altLabel>Project Oversight Committee</skos:altLabel>
+        <skos:definition>A group of faculty members who approve projects, coordinate with course coordinators, and handle appeals</skos:definition>
+        <skos:prefLabel>FYP Committee</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#CapstoneGroup -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#CapstoneGroup">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>The Capstone Group consists of UOS-CSIT students who collectively work on conceptualizing, developing, and implementing the FYP under supervision</dc:description>
+        <rdfs:comment>Group of students working on the FYP</rdfs:comment>
+        <rdfs:label>Capstone Group</rdfs:label>
+        <skos:altLabel>Project Team</skos:altLabel>
+        <skos:definition>A team of up to 3 students who collaborate on a single FYP</skos:definition>
+        <skos:prefLabel>FYP Group</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Coordinator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Coordinator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>The coordinator conducts weekly classes, assigns deliverables, monitors progress, and holds 60% of total marks (120/200) in the grading process</dc:description>
+        <rdfs:comment>FYP coordinator who manages the course</rdfs:comment>
+        <rdfs:label>Coordinator</rdfs:label>
+        <skos:altLabel>FYP Coordinator</skos:altLabel>
+        <skos:definition>Faculty member who manages the FYP course, allocates tasks, and evaluates student performance</skos:definition>
+        <skos:prefLabel>Course Coordinator</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Criteria -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Criteria">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <dc:description>Criteria define the specific aspects to be evaluated and the standards for measuring success. They provide objective measures for consistent and fair assessment across different projects</dc:description>
+        <rdfs:comment>Evaluation criteria used for assessment</rdfs:comment>
+        <rdfs:label>Criteria</rdfs:label>
+        <skos:altLabel>Assessment Standards</skos:altLabel>
+        <skos:definition>Specific standards or benchmarks used to measure and evaluate different aspects of the FYP</skos:definition>
+        <skos:example>Technical complexity, innovation, code quality, documentation completeness, presentation skills, project management, problem-solving approach</skos:example>
+        <skos:prefLabel>Evaluation Criteria</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Database -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Database">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>Databases provide persistent data storage and management capabilities, supporting data integrity, queries, and transactions. They can be relational, NoSQL, or other specialized types</dc:description>
+        <rdfs:comment>Database technologies used</rdfs:comment>
+        <rdfs:label>Database</rdfs:label>
+        <skos:altLabel>Data Storage Technology</skos:altLabel>
+        <skos:definition>A system for storing, organizing, and retrieving data used by the FYP application</skos:definition>
+        <skos:example>MySQL, PostgreSQL, MongoDB, Oracle, SQL Server, Redis, Cassandra, Firebase, SQLite</skos:example>
+        <skos:prefLabel>Database System</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#DesignDocument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DesignDocument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>The design document includes various diagrams such as Data Flow Diagrams (DFD), UML sequence diagrams, class diagrams, entity-relationship diagrams, and architectural views that illustrate how the system will be constructed</dc:description>
+        <rdfs:comment>Contains diagrams like DFD, sequence diagrams, etc.</rdfs:comment>
+        <rdfs:label>Design Document</rdfs:label>
+        <skos:altLabel>System Design Specification</skos:altLabel>
+        <skos:definition>A comprehensive document that describes the system architecture, design patterns, and technical specifications</skos:definition>
+        <skos:example>Contains DFD Level 0, Level 1, ER diagrams, sequence diagrams, component diagrams</skos:example>
+        <skos:prefLabel>Design Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#DevTool -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DevTool">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>Development tools include IDEs, version control systems, build tools, testing frameworks, and deployment platforms that support the development lifecycle</dc:description>
+        <rdfs:comment>Development tools used in the project</rdfs:comment>
+        <rdfs:label>Development Tool</rdfs:label>
+        <skos:altLabel>Development Environment</skos:altLabel>
+        <skos:definition>Software tools that assist in the development, testing, deployment, and maintenance of the FYP</skos:definition>
+        <skos:example>Visual Studio Code, Git, Docker, Jenkins, Postman, npm, Maven, Kubernetes, GitHub, Jira</skos:example>
+        <skos:prefLabel>Development Tool</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#DevelopmentProject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DevelopmentProject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/fypprocess#ResearchProject"/>
+        <dc:description>Development projects involve creating Software Requirement Specifications (SRS), Software Design Specifications (SDS), and implementing functional software systems through coding and testing</dc:description>
+        <rdfs:comment>Software development-focused project</rdfs:comment>
+        <rdfs:label>Development Project</rdfs:label>
+        <skos:altLabel>Application Development Project</skos:altLabel>
+        <skos:definition>A type of FYP focused on developing software applications or systems</skos:definition>
+        <skos:prefLabel>Software Development Project</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#DevelopmentResearchPhase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#DevelopmentResearchPhase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>For development projects, this phase includes creating Software Requirement Specifications (SRS) and Software Design Specifications (SDS). For research projects, this involves literature review and developing the proposed methodology</dc:description>
+        <rdfs:comment>Phase for developing specifications or research methodology</rdfs:comment>
+        <rdfs:label>Development Phase</rdfs:label>
+        <skos:altLabel>Research Planning Phase</skos:altLabel>
+        <skos:definition>The phase where students create detailed specifications for development projects or research methodologies for research projects</skos:definition>
+        <skos:prefLabel>Development Planning Phase</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Document -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Document">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>Documents serve as formal records of project planning, implementation, and evaluation</dc:description>
+        <rdfs:comment>Any document produced as part of the FYP process</rdfs:comment>
+        <rdfs:label>Document</rdfs:label>
+        <skos:definition>A written artifact that captures information, requirements, design, or other aspects of the FYP</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Evaluation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Evaluation">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>Evaluation encompasses all methods and processes used to assess the FYP including mid-semester evaluations with poster displays and demos, and final submissions with comprehensive reports and presentations</dc:description>
+        <rdfs:comment>Project evaluation methods and milestones</rdfs:comment>
+        <rdfs:label>Evaluation</rdfs:label>
+        <skos:altLabel>FYP Assessment Process</skos:altLabel>
+        <skos:definition>The systematic process of assessing the quality, progress, and outcomes of the FYP at various milestones</skos:definition>
+        <skos:prefLabel>Project Evaluation</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Examiner -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Examiner">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>Examiners assess the final project deliverables, presentations, and demonstrations to determine if the project meets the required academic standards</dc:description>
+        <rdfs:comment>Evaluates the final FYP</rdfs:comment>
+        <rdfs:label>Examiner</rdfs:label>
+        <skos:altLabel>FYP Evaluator</skos:altLabel>
+        <skos:definition>A faculty member who evaluates the completed final year project</skos:definition>
+        <skos:prefLabel>Project Examiner</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ExternalEvaluator -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ExternalEvaluator">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>External evaluators bring industry or academic expertise to assess the project&apos;s technical merit, innovation, and practical applicability</dc:description>
+        <rdfs:comment>External evaluator who assesses the FYP</rdfs:comment>
+        <rdfs:label>External Evaluator</rdfs:label>
+        <skos:altLabel>External Assessor</skos:altLabel>
+        <skos:definition>An independent expert who provides objective evaluation of the FYP quality and outcomes</skos:definition>
+        <skos:prefLabel>External Examiner</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#FailureContingency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FailureContingency">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>If a project is incomplete, the committee may allow revisions to the existing project or submission of a new proposal within 2 weeks, providing students with a contingency path</dc:description>
+        <rdfs:comment>Plan for handling incomplete projects</rdfs:comment>
+        <rdfs:label>Failure Contingency</rdfs:label>
+        <skos:altLabel>Project Recovery Plan</skos:altLabel>
+        <skos:definition>Procedures and options available when a project is deemed incomplete or unsuccessful</skos:definition>
+        <skos:prefLabel>Failure Handling Plan</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#FinalEvaluation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FinalEvaluation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <dc:description>Final evaluation includes a demo in the 7th week of Capstone II and comprehensive report submission in the 14th week, along with presentations and any corrections based on feedback</dc:description>
+        <rdfs:comment>Final assessment of the completed project</rdfs:comment>
+        <rdfs:label>Final Evaluation</rdfs:label>
+        <skos:altLabel>Final Project Review</skos:altLabel>
+        <skos:definition>The comprehensive evaluation of the completed project during Capstone II</skos:definition>
+        <skos:prefLabel>Final Assessment</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Framework -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Framework">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>Frameworks provide pre-written code, tools, and guidelines that accelerate development by offering reusable components, standardized patterns, and built-in functionality</dc:description>
+        <rdfs:comment>Development frameworks used</rdfs:comment>
+        <rdfs:label>Framework</rdfs:label>
+        <skos:altLabel>Development Framework</skos:altLabel>
+        <skos:definition>A platform that provides a foundation and structure for developing software applications</skos:definition>
+        <skos:example>React, Angular, Django, Spring Boot, Laravel, Express.js, Flutter, .NET Core, Vue.js</skos:example>
+        <skos:prefLabel>Software Framework</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#FunctionalRequirement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#FunctionalRequirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Functional requirements describe the specific behaviors, operations, and functions that the system must provide. They define what the system should do in response to various inputs and conditions</dc:description>
+        <rdfs:comment>What the system should do</rdfs:comment>
+        <rdfs:label>Functional Requirement</rdfs:label>
+        <skos:altLabel>Feature Requirement</skos:altLabel>
+        <skos:definition>A requirement that specifies a function or behavior that the system must perform</skos:definition>
+        <skos:example>User authentication, data validation, report generation, search functionality, user registration, order processing</skos:example>
+        <skos:prefLabel>Functional Requirement</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#HardwareInterface -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#HardwareInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Interface"/>
+        <dc:description>Hardware interface requirements detail the characteristics of hardware devices, including sensors, actuators, storage devices, network equipment, and other physical components that interact with the software system</dc:description>
+        <rdfs:comment>Device requirements</rdfs:comment>
+        <rdfs:label>Hardware Interface</rdfs:label>
+        <skos:altLabel>Device Interface Specification</skos:altLabel>
+        <skos:definition>Specifications for physical devices and hardware components that the system must interface with</skos:definition>
+        <skos:example>Printer specifications, scanner requirements, GPS module interfaces, camera requirements, minimum RAM/CPU specifications</skos:example>
+        <skos:prefLabel>Hardware Interface Requirements</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ImplementationPhase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPhase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>The implementation phase involves either coding and testing for development projects or experimentation for research projects. This phase spans across Capstone I and II and includes mid-semester evaluations</dc:description>
+        <rdfs:comment>System implementation, coding, or experimentation</rdfs:comment>
+        <rdfs:label>Implementation Phase</rdfs:label>
+        <skos:altLabel>Execution Phase</skos:altLabel>
+        <skos:definition>The phase where the actual system is built through coding and testing, or research experiments are conducted</skos:definition>
+        <skos:prefLabel>Development Phase</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ImplementationPlan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPlan">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>The implementation plan provides a detailed schedule of development activities, assigned responsibilities, deliverables, and milestones organized by week throughout the project lifecycle</dc:description>
+        <rdfs:comment>Weekly implementation plan</rdfs:comment>
+        <rdfs:label>Implementation Plan</rdfs:label>
+        <skos:altLabel>Development Timeline</skos:altLabel>
+        <skos:definition>A structured timeline document that breaks down the project implementation into weekly tasks and milestones</skos:definition>
+        <skos:example>Week 1-2: Database design, Week 3-4: Frontend development, Week 5-6: API integration</skos:example>
+        <skos:prefLabel>Implementation Schedule</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#IntegrationTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#IntegrationTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Integration testing ensures that different components work correctly when combined. It focuses on data flow, API interactions, and communication between modules</dc:description>
+        <rdfs:comment>Testing combined components</rdfs:comment>
+        <rdfs:label>Integration Testing</rdfs:label>
+        <skos:altLabel>Interface Testing</skos:altLabel>
+        <skos:definition>Documentation of tests that verify the interaction between integrated units or components</skos:definition>
+        <skos:example>API integration tests, database connectivity tests, module interaction tests, service-to-service communication tests</skos:example>
+        <skos:prefLabel>Integration Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Interface -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Interface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <dc:description>Interface requirements define how the system will interact with users, hardware, software, and other systems, establishing clear boundaries and communication protocols</dc:description>
+        <rdfs:comment>External Interface Requirements section</rdfs:comment>
+        <rdfs:label>Interface</rdfs:label>
+        <skos:altLabel>External Interface Specification</skos:altLabel>
+        <skos:definition>A section of the SRS that specifies all interfaces between the system and external entities</skos:definition>
+        <skos:prefLabel>Interface Requirements</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#MidSemesterEvaluation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#MidSemesterEvaluation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Evaluation"/>
+        <dc:description>Mid-semester evaluations include poster displays and demonstrations to showcase the current state of the project and receive feedback from evaluators</dc:description>
+        <rdfs:comment>Evaluation conducted in the middle of the semester</rdfs:comment>
+        <rdfs:label>Mid-Semester Evaluation</rdfs:label>
+        <skos:altLabel>Progress Evaluation</skos:altLabel>
+        <skos:definition>An assessment conducted during the 9th week of Capstone I to evaluate project progress</skos:definition>
+        <skos:prefLabel>Mid-term Evaluation</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#NonFunctionalRequirement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#NonFunctionalRequirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+        <dc:description>Non-functional requirements define the quality attributes and constraints under which the system must operate. They address aspects such as performance, security, usability, reliability, and maintainability</dc:description>
+        <rdfs:comment>System qualities like performance, security</rdfs:comment>
+        <rdfs:label>Non-Functional Requirement</rdfs:label>
+        <skos:altLabel>Quality Requirement</skos:altLabel>
+        <skos:definition>A requirement that specifies quality attributes, constraints, or characteristics of the system</skos:definition>
+        <skos:example>Response time under 3 seconds, 99.9% uptime, support for 1000 concurrent users, SSL encryption, WCAG 2.1 compliance, mobile responsiveness</skos:example>
+        <skos:prefLabel>Non-Functional Requirement</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#PerformanceTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#PerformanceTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Performance testing measures system responsiveness, stability, scalability, and resource usage under different workloads. It includes load testing, stress testing, and endurance testing</dc:description>
+        <rdfs:comment>Testing system performance</rdfs:comment>
+        <rdfs:label>Performance Testing</rdfs:label>
+        <skos:altLabel>Load Testing</skos:altLabel>
+        <skos:definition>Documentation of tests that evaluate system performance under various load conditions</skos:definition>
+        <skos:example>Load tests, stress tests, response time measurements, throughput analysis, resource utilization tests, scalability tests</skos:example>
+        <skos:prefLabel>Performance Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#PostCondition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#PostCondition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <dc:description>Post-conditions describe what must be true about the system after the use case executes successfully. They define the expected outcome and any changes to the system state</dc:description>
+        <rdfs:comment>State after the use case is completed</rdfs:comment>
+        <rdfs:label>Post Condition</rdfs:label>
+        <skos:altLabel>End State</skos:altLabel>
+        <skos:definition>The state of the system after a use case has been successfully completed</skos:definition>
+        <skos:example>User is logged in, Order is placed in database, Email confirmation is sent, User profile is updated</skos:example>
+        <skos:prefLabel>Post-condition</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Poster -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Poster">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Poster"/>
+        <dc:description>The poster provides a visual overview of the project including problem statement, methodology, results, and conclusions. It&apos;s designed for presentation at exhibitions and conferences</dc:description>
+        <rdfs:comment>Visual poster presentation of the project</rdfs:comment>
+        <rdfs:label>Poster</rdfs:label>
+        <skos:altLabel>Visual Presentation</skos:altLabel>
+        <skos:definition>A large-format visual summary of the FYP that presents key information in a concise, graphical format</skos:definition>
+        <skos:example>Project title, objectives, methodology diagram, key results, screenshots, conclusions, team information</skos:example>
+        <skos:prefLabel>Project Poster</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProgrammingLanguage -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProgrammingLanguage">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Technology"/>
+        <dc:description>Programming languages are the fundamental tools for implementing the system logic, algorithms, and functionality. Different languages may be used for different components of the project</dc:description>
+        <rdfs:comment>Programming languages used in development</rdfs:comment>
+        <rdfs:label>Programming Language</rdfs:label>
+        <skos:altLabel>Coding Language</skos:altLabel>
+        <skos:definition>A formal language with syntax and semantics used to write computer programs for the FYP</skos:definition>
+        <skos:example>Python, Java, JavaScript, C++, PHP, TypeScript, C#, Swift, Kotlin, Go</skos:example>
+        <skos:prefLabel>Development Language</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProjectPhase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPhase">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>Project phases organize the FYP into logical stages across two semesters, each with its own objectives, activities, and outcomes</dc:description>
+        <rdfs:comment>Different phases of the FYP</rdfs:comment>
+        <rdfs:label>Project Phase</rdfs:label>
+        <skos:altLabel>Project Stage</skos:altLabel>
+        <skos:definition>A distinct stage in the FYP lifecycle characterized by specific activities and deliverables</skos:definition>
+        <skos:prefLabel>Development Phase</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProjectPromotion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPromotion">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>Project promotion involves showcasing FYPs at events such as SPARKERPOI, CEPEX, PROCOM, and other academic or industry exhibitions to gain visibility and recognition</dc:description>
+        <rdfs:comment>Showcasing FYP at events</rdfs:comment>
+        <rdfs:label>Project Promotion</rdfs:label>
+        <skos:altLabel>Project Showcase</skos:altLabel>
+        <skos:definition>Activities and events where students showcase their FYP work to a broader audience</skos:definition>
+        <skos:prefLabel>Project Exhibition</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProjectTimeline -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectTimeline">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>The project timeline includes the Spring semester for proposal submission and approval, Fall semester (Capstone I) for implementation start and mid-semester evaluation, and Spring semester (Capstone II) for final implementation, demo, and comprehensive report submission</dc:description>
+        <rdfs:comment>Timeline for the entire FYP process</rdfs:comment>
+        <rdfs:label>Project Timeline</rdfs:label>
+        <skos:altLabel>Project Schedule</skos:altLabel>
+        <skos:definition>The chronological structure of the FYP spanning approximately 270 days across multiple semesters</skos:definition>
+        <skos:prefLabel>FYP Timeline</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProjectType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectType">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>FYP projects can be classified as either development projects with a focus on software application creation or research projects with a focus on investigation and experimentation</dc:description>
+        <rdfs:comment>Type of the FYP project</rdfs:comment>
+        <rdfs:label>Project Type</rdfs:label>
+        <skos:altLabel>Project Category</skos:altLabel>
+        <skos:definition>The classification of a project based on its primary focus and deliverables</skos:definition>
+        <skos:prefLabel>FYP Type</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Proposal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Proposal">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>The proposal serves as the foundational document that presents the project concept, problem statement, proposed solution, methodology, timeline, and resource requirements for approval before project commencement</dc:description>
+        <rdfs:comment>Initial project proposal</rdfs:comment>
+        <rdfs:label>Project Proposal</rdfs:label>
+        <skos:altLabel>Project Proposal Document</skos:altLabel>
+        <skos:definition>The initial document that outlines the project idea, objectives, scope, methodology, and expected outcomes</skos:definition>
+        <skos:example>Includes problem statement, objectives, literature review, proposed methodology, expected deliverables</skos:example>
+        <skos:prefLabel>FYP Proposal</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ProposalPhase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProposalPhase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>During the proposal phase, students select their area of interest and develop an idea. They write a proposal covering scope, application area, complexity, and innovation which must be approved before proceeding</dc:description>
+        <rdfs:comment>Initial planning and proposal development</rdfs:comment>
+        <rdfs:label>Proposal Phase</rdfs:label>
+        <skos:altLabel>Initiation Phase</skos:altLabel>
+        <skos:definition>The initial phase where students select an area of interest, develop an idea, and write a formal proposal</skos:definition>
+        <skos:example>Area selection, proposal writing, scope definition, innovation assessment</skos:example>
+        <skos:prefLabel>Project Proposal Stage</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Requirement -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Requirement">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <dc:description>Requirements form the foundation of the system specification, defining what the system must do (functional) and how well it must perform (non-functional). They serve as the basis for design, implementation, and testing</dc:description>
+        <rdfs:comment>Functional and non-functional requirements</rdfs:comment>
+        <rdfs:label>Requirement</rdfs:label>
+        <skos:altLabel>Software Requirement</skos:altLabel>
+        <skos:definition>A documented need that the system must satisfy, including both functional capabilities and quality attributes</skos:definition>
+        <skos:prefLabel>System Requirement</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#ResearchProject -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ResearchProject">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectType"/>
+        <dc:description>Research projects involve conducting literature reviews, developing methodologies, performing experiments, and analyzing results. Despite the research focus, they still require implementation deliverables</dc:description>
+        <rdfs:comment>Research-focused project</rdfs:comment>
+        <rdfs:label>Research Project</rdfs:label>
+        <skos:altLabel>Investigation Project</skos:altLabel>
+        <skos:definition>A type of FYP focused on investigating research questions through experimentation and analysis</skos:definition>
+        <skos:prefLabel>Scientific Research Project</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#SRS -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SRS">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasRequirement"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Requirement"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description>The SRS serves as a contract between stakeholders and developers, defining what the system should do</dc:description>
+        <rdfs:comment>Document detailing the software requirements for the project</rdfs:comment>
+        <rdfs:label>Software Requirements Specification</rdfs:label>
+        <skos:definition>A comprehensive document that describes the functional and non-functional requirements of the software system</skos:definition>
+        <skos:prefLabel>SRS Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Scenario -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Scenario">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#UseCase"/>
+        <dc:description>The scenario describes the step-by-step interaction between the actor and the system under normal conditions, showing how the actor achieves their goal</dc:description>
+        <rdfs:comment>Main flow of events in a use case</rdfs:comment>
+        <rdfs:label>Scenario</rdfs:label>
+        <skos:altLabel>Primary Flow</skos:altLabel>
+        <skos:definition>The normal, expected sequence of steps that occur when a use case is executed successfully</skos:definition>
+        <skos:example>1. User enters credentials, 2. System validates credentials, 3. System displays dashboard, 4. User selects option</skos:example>
+        <skos:prefLabel>Main Scenario</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#SecurityTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SecurityTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Security testing evaluates the system&apos;s ability to protect data and maintain functionality as intended. It includes vulnerability scanning, penetration testing, and security control verification</dc:description>
+        <rdfs:comment>Testing for vulnerabilities</rdfs:comment>
+        <rdfs:label>Security Testing</rdfs:label>
+        <skos:altLabel>Vulnerability Assessment</skos:altLabel>
+        <skos:definition>Documentation of tests that identify security vulnerabilities and verify security controls</skos:definition>
+        <skos:example>SQL injection tests, XSS vulnerability scans, authentication bypass attempts, encryption validation, access control tests, penetration testing results</skos:example>
+        <skos:prefLabel>Security Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#SoftwareInterface -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SoftwareInterface">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Interface"/>
+        <dc:description>Software interface requirements describe external software dependencies, including operating systems, databases, web services, third-party APIs, libraries, and other software components that the system must interact with</dc:description>
+        <rdfs:comment>Software dependencies and APIs</rdfs:comment>
+        <rdfs:label>Software Interface</rdfs:label>
+        <skos:altLabel>API Integration Requirements</skos:altLabel>
+        <skos:definition>Specifications for software systems, libraries, and APIs that the system must integrate with or depend upon</skos:definition>
+        <skos:example>REST API endpoints, database connection requirements, operating system compatibility, third-party library versions, web service protocols</skos:example>
+        <skos:prefLabel>Software Interface Requirements</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#StakeHolder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#StakeHolder">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <dc:description>Stakeholders include students, supervisors, coordinators, committee members, and other parties involved in the FYP lifecycle</dc:description>
+        <rdfs:comment>Any person or role involved in the FYP process</rdfs:comment>
+        <rdfs:label>Stakeholder</rdfs:label>
+        <skos:definition>An individual or entity that has an interest in or is affected by the FYP</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Student -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Student">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>Students are the primary stakeholders who conceptualize, develop, and implement the FYP under supervision. They form groups of up to 3 members</dc:description>
+        <rdfs:comment>A student working on the FYP</rdfs:comment>
+        <rdfs:label>Student</rdfs:label>
+        <skos:altLabel>Project Member</skos:altLabel>
+        <skos:definition>An enrolled student at UOS-CSIT who is actively participating in and working on a Final Year Project</skos:definition>
+        <skos:prefLabel>FYP Student</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Supervisor -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Supervisor">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>The supervisor mentors students, provides technical guidance based on their domain expertise, and evaluates project progress. Supervisors can be internal faculty or external experts who align with the project&apos;s domain</dc:description>
+        <rdfs:comment>Academic supervisor of the FYP</rdfs:comment>
+        <rdfs:label>Supervisor</rdfs:label>
+        <skos:altLabel>Project Advisor</skos:altLabel>
+        <skos:definition>A faculty member or external expert who provides academic guidance and oversight for the FYP</skos:definition>
+        <skos:prefLabel>Academic Supervisor</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#SupervisorExpertise -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SupervisorExpertise">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        <dc:description>Supervisor expertise covers various domains such as machine learning, big data, networks, security, software engineering, web/android apps, sentiment analysis, data science, and computer vision</dc:description>
+        <rdfs:comment>Domain expertise of FYP supervisors</rdfs:comment>
+        <rdfs:label>Supervisor Expertise</rdfs:label>
+        <skos:altLabel>Supervisor Specialization</skos:altLabel>
+        <skos:definition>The specific technical or research domains in which supervisors specialize</skos:definition>
+        <skos:prefLabel>Faculty Expertise</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#SystemTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#SystemTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>System testing evaluates the entire application as a whole, ensuring all components work together to deliver the expected functionality and meet all specified requirements</dc:description>
+        <rdfs:comment>Testing the entire system</rdfs:comment>
+        <rdfs:label>System Testing</rdfs:label>
+        <skos:altLabel>End-to-End Testing</skos:altLabel>
+        <skos:definition>Documentation of tests performed on the complete integrated system to verify it meets requirements</skos:definition>
+        <skos:example>End-to-end workflow tests, requirement verification tests, acceptance criteria validation, full system regression tests</skos:example>
+        <skos:prefLabel>System Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Technology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Technology">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>Technologies encompass all technical components used in the project, including programming languages, frameworks, databases, APIs, and development tools. They form the technical foundation of the project</dc:description>
+        <rdfs:comment>Technologies used in the project</rdfs:comment>
+        <rdfs:label>Technology</rdfs:label>
+        <skos:altLabel>Technical Stack</skos:altLabel>
+        <skos:definition>Any software, hardware, or technical tool used in the development and implementation of the FYP</skos:definition>
+        <skos:prefLabel>Project Technology</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#TestingDocument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#TestingDocument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#Document"/>
+        <dc:description>The testing document includes test strategies, test case templates, execution logs, defect reports, and test coverage metrics to ensure the system meets quality standards and requirements</dc:description>
+        <rdfs:comment>Testing templates and results</rdfs:comment>
+        <rdfs:label>Testing Document</rdfs:label>
+        <skos:altLabel>QA Documentation</skos:altLabel>
+        <skos:definition>A document containing test plans, test cases, test scenarios, and the results of testing activities</skos:definition>
+        <skos:example>Unit test cases, integration test results, user acceptance test scenarios, performance test metrics</skos:example>
+        <skos:prefLabel>Test Plan and Results</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#TestingPhase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#TestingPhase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
+        <dc:description>During the testing phase, the developed system undergoes comprehensive testing to identify and fix bugs, verify requirements are met, and ensure quality standards are achieved before final delivery</dc:description>
+        <rdfs:comment>System testing and quality assurance</rdfs:comment>
+        <rdfs:label>Testing Phase</rdfs:label>
+        <skos:altLabel>Validation Phase</skos:altLabel>
+        <skos:definition>The phase dedicated to verifying system functionality, performance, and quality through various testing methods</skos:definition>
+        <skos:example>Unit testing execution, integration testing, system testing, user acceptance testing, bug fixing, performance optimization</skos:example>
+        <skos:prefLabel>Quality Assurance Phase</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#UnitTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UnitTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Unit testing focuses on verifying the functionality of individual modules, functions, or classes. These tests are typically automated and run frequently during development to catch bugs early</dc:description>
+        <rdfs:comment>Testing individual components</rdfs:comment>
+        <rdfs:label>Unit Testing</rdfs:label>
+        <skos:altLabel>Component Testing</skos:altLabel>
+        <skos:definition>Documentation of tests performed on individual units or components of the system in isolation</skos:definition>
+        <skos:example>Function-level tests, class method tests, module tests, test cases for individual APIs, mock object tests</skos:example>
+        <skos:prefLabel>Unit Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#UsabilityTesting -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UsabilityTesting">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        <dc:description>Usability testing focuses on the user experience, including interface design, navigation flow, accessibility, and overall user satisfaction. It often involves real users performing typical tasks</dc:description>
+        <rdfs:comment>Testing user experience</rdfs:comment>
+        <rdfs:label>Usability Testing</rdfs:label>
+        <skos:altLabel>User Experience Testing</skos:altLabel>
+        <skos:definition>Documentation of tests that evaluate how easy and pleasant the system is for users to interact with</skos:definition>
+        <skos:example>User task completion tests, navigation flow analysis, accessibility compliance tests, user satisfaction surveys, heuristic evaluations</skos:example>
+        <skos:prefLabel>Usability Testing Document</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#UseCase -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#UseCase">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#SRS"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/fypprocess#hasActor"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/fypprocess#Actor"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:description>Use cases document the interactions between users (actors) and the system, describing the steps needed to accomplish specific tasks. They form a key part of requirements analysis and system design</dc:description>
+        <rdfs:comment>Represents user interactions with the system</rdfs:comment>
+        <rdfs:label>Use Case</rdfs:label>
+        <skos:altLabel>User Scenario</skos:altLabel>
+        <skos:definition>A description of how a user will interact with the system to achieve a specific goal</skos:definition>
+        <skos:prefLabel>Use Case</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#User -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#User">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#StakeHolder"/>
+        <dc:description>End users are the target audience for the FYP deliverable, whose needs and requirements drive the project&apos;s functional specifications</dc:description>
+        <rdfs:comment>End users of the application</rdfs:comment>
+        <rdfs:label>User</rdfs:label>
+        <skos:altLabel>System User</skos:altLabel>
+        <skos:definition>Individuals who will interact with and use the final product or system developed in the FYP</skos:definition>
+        <skos:prefLabel>End User</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#Video -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#Video">
+        <rdfs:subClassOf rdf:resource="http://schema.org/Project"/>
+        <dc:description>The video provides a visual demonstration of the project in action, showing key features, user interface, and system capabilities. It serves as a dynamic presentation tool for evaluators and stakeholders</dc:description>
+        <rdfs:comment>Video demonstration of the project</rdfs:comment>
+        <rdfs:label>Video</rdfs:label>
+        <skos:altLabel>Project Video</skos:altLabel>
+        <skos:definition>A multimedia presentation that demonstrates the FYP&apos;s functionality and features</skos:definition>
+        <skos:example>System walkthrough, feature demonstration, user interaction scenarios, technical architecture overview</skos:example>
+        <skos:prefLabel>Demo Video</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/fypprocess#WeeklyTask -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#WeeklyTask">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+        <dc:description>Weekly tasks break down the project work into manageable chunks, each assigned to specific weeks. They help track progress, allocate resources, and ensure timely project completion</dc:description>
+        <rdfs:comment>Tasks planned for specific weeks</rdfs:comment>
+        <rdfs:label>Weekly Task</rdfs:label>
+        <skos:altLabel>Week-based Activity</skos:altLabel>
+        <skos:definition>A specific task or set of activities scheduled to be completed within a particular week of the project timeline</skos:definition>
+        <skos:example>Week 1: Requirements gathering, Week 2: Database design, Week 3: Frontend development, Week 4: API implementation</skos:example>
+        <skos:prefLabel>Weekly Task</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://schema.org/Project -->
+
+    <owl:Class rdf:about="https://schema.org/Project"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Coordinator"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Examiner"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#ExternalEvaluator"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Student"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Supervisor"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#DesignDocument"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPlan"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#Proposal"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SRS"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#TestingDocument"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#DevelopmentResearchPhase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#ImplementationPhase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#ProposalPhase"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#TestingPhase"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#IntegrationTesting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#PerformanceTesting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SecurityTesting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#SystemTesting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UnitTesting"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/fypprocess#UsabilityTesting"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
