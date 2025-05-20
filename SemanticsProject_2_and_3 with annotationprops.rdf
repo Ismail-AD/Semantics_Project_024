@@ -1349,32 +1349,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/fypprocess#promotedAt -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotedAt">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/fypprocess#promotes"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
-        <dc:description>Establishes the relationship between projects and promotional events where they are demonstrated or showcased</dc:description>
-        <rdfs:comment>Links FYPs to events where they are promoted</rdfs:comment>
-        <rdfs:label>promoted at</rdfs:label>
-        <skos:definition>Connects FYPs to showcases, exhibitions, or competitions where they are presented</skos:definition>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/fypprocess#promotes -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#promotes">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
-        <rdfs:comment>Relates promotional events to FYPs they showcase</rdfs:comment>
-        <rdfs:label>promotes</rdfs:label>
-        <skos:definition>Connects a promotional event to the FYPs being presented or demonstrated</skos:definition>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/fypprocess#relatesTo -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/fypprocess#relatesTo">
@@ -1783,7 +1757,6 @@
     <!-- http://www.semanticweb.org/fypprocess#eventDate -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#eventDate">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
         <dc:description>Records when project showcases, exhibitions, or competitions are scheduled</dc:description>
         <rdfs:comment>Date of the promotion event</rdfs:comment>
@@ -1797,7 +1770,6 @@
     <!-- http://www.semanticweb.org/fypprocess#eventName -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#eventName">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:description>Identifies specific events, exhibitions, or competitions where students present their FYP work</dc:description>
         <rdfs:comment>Name of the promotion event</rdfs:comment>
@@ -2369,7 +2341,6 @@
     <!-- http://www.semanticweb.org/fypprocess#venueLocation -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/fypprocess#venueLocation">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPromotion"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <dc:description>Specifies the venue, building, or facility where students showcase their projects</dc:description>
         <rdfs:comment>Location of the promotion event</rdfs:comment>
@@ -2636,7 +2607,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#ProjectPhase"/>
         <dc:description>For development projects, this phase includes creating Software Requirement Specifications (SRS) and Software Design Specifications (SDS). For research projects, this involves literature review and developing the proposed methodology</dc:description>
         <rdfs:comment>Phase for developing specifications or research methodology</rdfs:comment>
-        <rdfs:label>Development/Research Phase</rdfs:label>
+        <rdfs:label>Research Phase</rdfs:label>
         <skos:altLabel>Research Planning Phase</skos:altLabel>
         <skos:definition>The phase where students create detailed specifications for development projects or research methodologies for research projects</skos:definition>
         <skos:prefLabel>Development Planning Phase</skos:prefLabel>
@@ -2952,20 +2923,6 @@
         <skos:altLabel>Project Stage</skos:altLabel>
         <skos:definition>A distinct stage in the FYP lifecycle characterized by specific activities and deliverables</skos:definition>
         <skos:prefLabel>Development Phase</skos:prefLabel>
-    </owl:Class>
-    
-
-
-    <!-- http://www.semanticweb.org/fypprocess#ProjectPromotion -->
-
-    <owl:Class rdf:about="http://www.semanticweb.org/fypprocess#ProjectPromotion">
-        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fypprocess#FYP"/>
-        <dc:description>Project promotion involves showcasing FYPs at events such as SPARKERPOI, CEPEX, PROCOM, and other academic or industry exhibitions to gain visibility and recognition</dc:description>
-        <rdfs:comment>Showcasing FYP at events</rdfs:comment>
-        <rdfs:label>Project Promotion</rdfs:label>
-        <skos:altLabel>Project Showcase</skos:altLabel>
-        <skos:definition>Activities and events where students showcase their FYP work to a broader audience</skos:definition>
-        <skos:prefLabel>Project Exhibition</skos:prefLabel>
     </owl:Class>
     
 
@@ -3388,3 +3345,4 @@
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
